@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import {PokedexService} from '../pokedex.service'
+
+import { pokemonData } from '../pokemon';
 
 @Component({
   selector: 'app-pokedex',
@@ -9,11 +11,14 @@ import {PokedexService} from '../pokedex.service'
 })
 export class PokedexComponent {
   newdata:any;
-  constructor(private _pokedexsService:PokedexService) {}
+  pokemon: any;
 
+  constructor(private _pokedexsService:PokedexService) {}
+  
   ngOnInit(){
-    this._pokedexsService.getdata().subscribe(res=>{
+    this._pokedexsService.getdata(700).subscribe(res=>{
       this.newdata=res
     })
+
   }
 }

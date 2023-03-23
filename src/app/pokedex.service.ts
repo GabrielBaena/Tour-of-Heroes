@@ -6,6 +6,8 @@ import { catchError, tap } from 'rxjs';
 
 import { Observable, of } from 'rxjs';
 
+import { Pokemon, pokemon, pokemonData} from './pokemon';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,20 +16,39 @@ export class PokedexService {
   constructor(private _http:HttpClient,
   private messageService: MessageService) { }
 
-  private pokeAPI= "https://pokeapi.co/api/v2/pokemon/1/"
 
   httpOptions = {   //adiciona o cabeçalho necessário para salvar as alterações no HTTP
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  getdata() {
-    return this._http.get(this.pokeAPI)
+  getdata(id:number) {
+    return  this._http.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .pipe(
         tap(_ => this.log('bulbasaur fetched')),
         catchError(this.handleError('getPokemon', []))
       )
   }
+
   
+
+ /* getPokemonList(data: []){     //pega a lista de todos os pokemon e passa para getPokemon
+    let pokemonList:{}[] = [];
+
+    data.forEach((element: pokemon) => {
+      pokemonList.push(this.getPokemon(element))
+    }); 
+    return pokemonList;
+ }
+
+  getPokemon(pokemon: pokemon) {    //pega a url de cada pokemon e devolve
+    return this._http.get(`${pokemon.url}`)
+    .pipe(
+      tap(_ => this.log(`pokemon #${pokemon.name} fetched`)),
+      catchError(this.handleError('getPokemon', []))
+    )
+  }
+  */
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
