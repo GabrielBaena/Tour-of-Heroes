@@ -1,6 +1,31 @@
-
-    <div class="pokemon-card" *ngFor="let pokemon of pokemonGen1">
-        <img class="__image" src="{{pokemon.sprites.other.home.front_default}}" alt="">
-        <br>
-        <span class="__name">{{pokemon.name}}  #{{pokemon.id}}</span>
+<form action="">
+  <div class="select">
+    <div *ngFor="let type of types">
+      <input name="type" type="checkbox" value="{{ type }}" />
+      <div class="double-checkbox select__item __type --{{ type }}">
+        {{ type }}
+      </div>
     </div>
+    <div></div>
+  </div>
+  <input type="submit" name="submit" value="Filter" />
+</form>
+<div class="pokemon-list">
+  <h2 class="generation-title">Generation 1</h2>
+  <a routerLink="/" class="pokemon-card" *ngFor="let pokemon of pokemonGen1">
+    <div class="__number">N°{{ pokemon.id }}</div>
+    <img
+      class="__image"
+      src="{{ pokemon.sprites.other.home.front_default }}"
+      alt=""
+    />
+    <div class="__name">{{ pokemon.name }}</div>
+    <div class="__types">
+      <span
+        class="__type --{{ type.type.name }}"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name }}</span
+      >
+    </div>
+  </a>
+</div>

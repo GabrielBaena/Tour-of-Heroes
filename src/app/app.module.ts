@@ -16,6 +16,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
+import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PokedexComponent } from './pokedex/pokedex.component';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    PokedexComponent
+    PokedexComponent,
+    PokemonDetailComponent
     
   ],
   imports: [

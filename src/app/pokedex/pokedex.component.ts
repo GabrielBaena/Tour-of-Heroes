@@ -11,7 +11,10 @@ import { pokemonData } from '../pokemon';
 })
 export class PokedexComponent {
   pokemonGen1: any[] = [];
-
+  types: any[] =[
+    "normal",	"fire",	"water","electric",	"grass","ice",
+     "fighting", "poison", "ground", "flying", "psychic",
+     "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy",  ]
   constructor(private _pokedexsService:PokedexService) {}
   
   ngOnInit(): void{
@@ -24,10 +27,9 @@ export class PokedexComponent {
               this.pokemonGen1.sort(function(a, b) {
                 return a.id - b.id;
             })
-              console.log(this.pokemonGen1)
           })
       })
     })
 
-  }
+  } 
 }
