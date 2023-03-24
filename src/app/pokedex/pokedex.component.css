@@ -41,7 +41,6 @@ div {
 
 .pokemon-card{
   flex-direction: column !important;
-  font-family: 'Rajdhani', sans-serif ;
   border: 5px solid #3a9ec6;
   border-radius:  5px;
   background-color: #e2e2e2;

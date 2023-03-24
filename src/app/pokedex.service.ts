@@ -27,7 +27,7 @@ export class PokedexService {
   );
   gen_1_list:[][] = [];
 
-  getdata(id:string) {
+  getdata(id:any) {
     return  this._http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .pipe(
         tap(),
@@ -45,24 +45,6 @@ export class PokedexService {
       )
   }
   
-
- /* getPokemonList(data: []){     //pega a lista de todos os pokemon e passa para getPokemon
-    let pokemonList:{}[] = [];
-
-    data.forEach((element: pokemon) => {
-      pokemonList.push(this.getPokemon(element))
-    }); 
-    return pokemonList;
- }
-
-  getPokemon(pokemon: pokemon) {    //pega a url de cada pokemon e devolve
-    return this._http.get(`${pokemon.url}`)
-    .pipe(
-      tap(_ => this.log(`pokemon #${pokemon.name} fetched`)),
-      catchError(this.handleError('getPokemon', []))
-    )
-  }
-  */
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

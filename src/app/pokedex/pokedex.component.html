@@ -12,7 +12,7 @@
 </form>
 <div class="pokemon-list">
   <h2 class="generation-title">Generation 1</h2>
-  <a routerLink="/" class="pokemon-card" *ngFor="let pokemon of pokemonGen1">
+  <a routerLink="/pokemon-detail/{{pokemon.name}}" class="pokemon-card" *ngFor="let pokemon of pokemonGen1">
     <div class="__number">N°{{ pokemon.id }}</div>
     <img
       class="__image"

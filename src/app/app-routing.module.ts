@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
-
+import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component'
 
 
 const routes: Routes = [
@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'pokedex', component: PokedexComponent },
+  { path: 'pokemon-detail/:name', component: PokemonDetailComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 

@@ -1,1 +1,29 @@
-<p>pokemon-detail works!</p>
+<div class="pokemon-info" *ngFor="let pokemons of pokemon">
+    <div>
+        <div>
+                <img
+                  class="__image"
+                  src="{{ pokemons.sprites.other.home.front_default }}"
+                  alt=""
+                />
+                <span>Normal</span>
+        </div>
+        <div>
+                <img
+                  class="__image"
+                  src="{{ pokemons.sprites.other.home.front_shiny }}"
+                  alt=""
+                />
+                <span>Shiny</span>
+        </div>
+    </div>
+        <div class="__number">N°{{ pokemons.id }}</div>
+        <div class="__name">{{ pokemons.name }}</div>
+        <div class="__types">
+          <span
+            class="__type --{{ type.type.name }}"
+            *ngFor="let type of pokemons.types"
+            >{{ type.type.name }}</span
+          >
+        </div>
+    </div>
