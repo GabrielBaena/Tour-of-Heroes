@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from './message.service';
 import { catchError, tap } from 'rxjs';
 
-import { Observable, of } from 'rxjs';
+import { Observable, of, map } from 'rxjs';
 
 import { Pokemon, pokemon, pokemonData} from './pokemon';
 
@@ -21,14 +21,29 @@ export class PokedexService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  getdata(id:number) {
-    return  this._http.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+  gen1 = Array.from(
+  { length: (151 - 1) / 1 + 1 },
+  (value, index) => 1 + index * 1
+  );
+  gen_1_list:[][] = [];
+
+  getdata(id:string) {
+    return  this._http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .pipe(
-        tap(_ => this.log('bulbasaur fetched')),
+        tap(),
         catchError(this.handleError('getPokemon', []))
       )
   }
 
+
+
+  getgen1() {
+    return  this._http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon?limit=151`)
+      .pipe(
+        tap(_ => this.log(`fetched Kalos' pokemon`)),
+        catchError(this.handleError('getPokemon', []))
+      )
+  }
   
 
  /* getPokemonList(data: []){     //pega a lista de todos os pokemon e passa para getPokemon

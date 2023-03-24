@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit} from '@angular/core';
 
 import {PokedexService} from '../pokedex.service'
 
@@ -10,14 +10,23 @@ import { pokemonData } from '../pokemon';
   styleUrls: ['./pokedex.component.css']
 })
 export class PokedexComponent {
-  newdata:any;
-  pokemon: any;
+  pokemonGen1: any[] = [];
 
   constructor(private _pokedexsService:PokedexService) {}
   
-  ngOnInit(){
-    this._pokedexsService.getdata(700).subscribe(res=>{
-      this.newdata=res
+  ngOnInit(): void{
+    this._pokedexsService.getgen1()
+      .subscribe((response:any)=>{
+        response.results.forEach((result:any) => {
+          this._pokedexsService.getdata(result.name)
+            .subscribe((uniqueResponse: any) => {
+              this.pokemonGen1.push(uniqueResponse);
+              this.pokemonGen1.sort(function(a, b) {
+                return a.id - b.id;
+            })
+              console.log(this.pokemonGen1)
+          })
+      })
     })
 
   }

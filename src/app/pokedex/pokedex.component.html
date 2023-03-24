@@ -1,5 +1,6 @@
-<img src="{{newdata.sprites.front_default}}" alt="">
-<br>
-<span>{{newdata.name}}</span>
-<span>   #{{newdata.id}}</span>
 
+    <div class="pokemon-card" *ngFor="let pokemon of pokemonGen1">
+        <img class="__image" src="{{pokemon.sprites.other.home.front_default}}" alt="">
+        <br>
+        <span class="__name">{{pokemon.name}}  #{{pokemon.id}}</span>
+    </div>
