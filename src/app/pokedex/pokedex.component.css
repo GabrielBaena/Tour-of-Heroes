@@ -20,16 +20,9 @@ h2 {
   display: flex;
 }
 
-.select {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  max-width: 100%;
-  gap: 10px;
-}
-
 .select__gen {
   margin: 8px;
-  width: 100px;
+  width: max-content;
   height: 18px;
   padding: 10px;
   cursor: pointer;
@@ -39,23 +32,35 @@ h2 {
   border-radius: 6px;
 }
 
-.gen_list {
-  display: inline-flex;
+.gen__list {
+  display: flex;
   flex-wrap: wrap;
-  place-content: space-evenly;
+  place-content: space-around;
   flex-direction: row;
+}
+
+.select {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: max-content !important;
+  place-content: center;
 }
 
 input {
   display: none;
 }
+:hover + label {
+  border: 5px solid #3a9ec6;
+  padding: 5px;
+}
+
 :checked + label {
   border: 5px solid #f04040;
   padding: 5px;
 }
 
 .select__item {
-  margin: 15px;
+  margin: 5px 30px !important;
   padding: 10px;
   width: 100px !important;
   cursor: pointer;
