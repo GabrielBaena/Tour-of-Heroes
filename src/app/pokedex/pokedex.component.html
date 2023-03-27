@@ -1,22 +1,263 @@
+<h2 id="beginning" class="title">Select a generation:</h2>
+<div class="gen__list">
+  <a href="/pokedex#generation_1" class="select__gen">Generation 1</a>
+  <a href="/pokedex#generation_2" class="select__gen">Generation 2</a>
+  <a href="/pokedex#generation_3" class="select__gen">Generation 3</a>
+  <a href="/pokedex#generation_4" class="select__gen">Generation 4</a>
+  <a href="/pokedex#generation_5" class="select__gen">Generation 5</a>
+  <a href="/pokedex#generation_6" class="select__gen">Generation 6</a>
+  <a href="/pokedex#generation_7" class="select__gen">Generation 7</a>
+  <a href="/pokedex#generation_8" class="select__gen">Generation 8</a>
+  <a href="/pokedex#generation_9" class="select__gen">Generation 9</a>
+</div>
+<h2 class="title">Select type(s):</h2>
 <form action="">
   <div class="select">
     <div *ngFor="let type of types">
-      <input name="type" type="checkbox" value="{{ type }}" />
-      <div class="double-checkbox select__item __type --{{ type }}">
+      <input
+        name="type"
+        type="checkbox"
+        class="checkbox_type"
+        id="{{ type }}"
+        value="{{ type }}"
+      />
+      <label
+        for="{{ type }}"
+        class="double-checkbox select__item __type --{{ type }}"
+        >{{ type }}</label
+      >
+      <!-- <div class="double-checkbox select__item __type --{{ type }}">
         {{ type }}
-      </div>
+      </div> -->
     </div>
     <div></div>
   </div>
   <input type="submit" name="submit" value="Filter" />
 </form>
 <div class="pokemon-list">
-  <h2 class="generation-title">Generation 1</h2>
-  <a routerLink="/pokemon-detail/{{pokemon.name}}" class="pokemon-card" *ngFor="let pokemon of pokemonGen1">
+  <h2 id="generation_1" class="title">
+    Generation 1
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
+  <a
+    routerLink="/pokemon-detail/{{ pokemon.name }}"
+    class="pokemon-card"
+    *ngFor="let pokemon of pokemonGen1"
+  >
     <div class="__number">N°{{ pokemon.id }}</div>
     <img
       class="__image"
-      src="{{ pokemon.sprites.other.home.front_default }}"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        pokemon.id
+      }}.png"
+      alt=""
+    />
+    <div class="__name">{{ pokemon.name }}</div>
+    <div class="__types">
+      <span
+        class="__type --{{ type.type.name }}"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name }}</span
+      >
+    </div>
+  </a>
+  <h2 id="generation_2" class="title">
+    Generation 2
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
+  <a
+    routerLink="/pokemon-detail/{{ pokemon.name }}"
+    class="pokemon-card"
+    *ngFor="let pokemon of pokemonGen2"
+  >
+    <div class="__number">N°{{ pokemon.id }}</div>
+    <img
+      class="__image"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        pokemon.id
+      }}.png"
+      alt=""
+    />
+    <div class="__name">{{ pokemon.name }}</div>
+    <div class="__types">
+      <span
+        class="__type --{{ type.type.name }}"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name }}</span
+      >
+    </div>
+  </a>
+  <h2 id="generation_3" class="title">
+    Generation 3
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
+  <a
+    routerLink="/pokemon-detail/{{ pokemon.name }}"
+    class="pokemon-card"
+    *ngFor="let pokemon of pokemonGen3"
+  >
+    <div class="__number">N°{{ pokemon.id }}</div>
+    <img
+      class="__image"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        pokemon.id
+      }}.png"
+      alt=""
+    />
+    <div class="__name">{{ pokemon.name }}</div>
+    <div class="__types">
+      <span
+        class="__type --{{ type.type.name }}"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name }}</span
+      >
+    </div>
+  </a>
+  <h2 id="generation_4" class="title">
+    Generation 4
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
+  <a
+    routerLink="/pokemon-detail/{{ pokemon.name }}"
+    class="pokemon-card"
+    *ngFor="let pokemon of pokemonGen4"
+  >
+    <div class="__number">N°{{ pokemon.id }}</div>
+    <img
+      class="__image"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        pokemon.id
+      }}.png"
+      alt=""
+    />
+    <div class="__name">{{ pokemon.name }}</div>
+    <div class="__types">
+      <span
+        class="__type --{{ type.type.name }}"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name }}</span
+      >
+    </div>
+  </a>
+  <h2 id="generation_5" class="title">
+    Generation 5
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
+  <a
+    routerLink="/pokemon-detail/{{ pokemon.name }}"
+    class="pokemon-card"
+    *ngFor="let pokemon of pokemonGen5"
+  >
+    <div class="__number">N°{{ pokemon.id }}</div>
+    <img
+      class="__image"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        pokemon.id
+      }}.png"
+      alt=""
+    />
+    <div class="__name">{{ pokemon.name }}</div>
+    <div class="__types">
+      <span
+        class="__type --{{ type.type.name }}"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name }}</span
+      >
+    </div>
+  </a>
+  <h2 id="generation_6" class="title">
+    Generation 6
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
+  <a
+    routerLink="/pokemon-detail/{{ pokemon.name }}"
+    class="pokemon-card"
+    *ngFor="let pokemon of pokemonGen6"
+  >
+    <div class="__number">N°{{ pokemon.id }}</div>
+    <img
+      class="__image"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        pokemon.id
+      }}.png"
+      alt=""
+    />
+    <div class="__name">{{ pokemon.name }}</div>
+    <div class="__types">
+      <span
+        class="__type --{{ type.type.name }}"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name }}</span
+      >
+    </div>
+  </a>
+  <h2 id="generation_7" class="title">
+    Generation 7
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
+  <a
+    routerLink="/pokemon-detail/{{ pokemon.name }}"
+    class="pokemon-card"
+    *ngFor="let pokemon of pokemonGen7"
+  >
+    <div class="__number">N°{{ pokemon.id }}</div>
+    <img
+      class="__image"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        pokemon.id
+      }}.png"
+      alt=""
+    />
+    <div class="__name">{{ pokemon.name }}</div>
+    <div class="__types">
+      <span
+        class="__type --{{ type.type.name }}"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name }}</span
+      >
+    </div>
+  </a>
+  <h2 id="generation_8" class="title">
+    Generation 8
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
+  <a
+    routerLink="/pokemon-detail/{{ pokemon.name }}"
+    class="pokemon-card"
+    *ngFor="let pokemon of pokemonGen8"
+  >
+    <div class="__number">N°{{ pokemon.id }}</div>
+    <img
+      class="__image"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        pokemon.id
+      }}.png"
+      alt=""
+    />
+    <div class="__name">{{ pokemon.name }}</div>
+    <div class="__types">
+      <span
+        class="__type --{{ type.type.name }}"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name }}</span
+      >
+    </div>
+  </a>
+  <h2 id="generation_9" class="title">
+    Generation 9
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
+  <a
+    routerLink="/pokemon-detail/{{ pokemon.name }}"
+    class="pokemon-card"
+    *ngFor="let pokemon of pokemonGen9"
+  >
+    <div class="__number">N°{{ pokemon.id }}</div>
+    <img
+      class="__image"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+        pokemon.id
+      }}.png"
       alt=""
     />
     <div class="__name">{{ pokemon.name }}</div>

@@ -1,48 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap");
 
-*{
-    font-family: 'Rajdhani', sans-serif ;
+* {
+  font-family: "Rajdhani", sans-serif;
 }
 
-a{
-    text-decoration: none;
-    display: flex;
+a {
+  text-decoration: none;
+  display: flex;
 }
-
 
 div {
-    display: inline-flex;
-    flex-wrap: wrap;
-    place-content: space-evenly; 
-    flex-direction: row;
+  display: inline-flex;
+  flex-wrap: wrap;
+  place-content: space-evenly;
+  flex-direction: row;
 }
 
-
-.select{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    max-width: 100%;
-    gap: 10px;
+h2 {
+  display: flex;
 }
 
-.select__item{
-    padding: 10px;
-    width: 100px !important;
-    cursor: pointer;
-    font-size: 100% !important;
-    transition: background 0.1s;
+.select {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 100%;
+  gap: 10px;
 }
 
-.generation-title{
-    padding-left: 1.1rem;
-    width: 100%;
-    font-size: 200%;
-  }
+.select__gen {
+  margin: 8px;
+  width: 100px;
+  height: 18px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 100% !important;
+  background: #e2e2e2;
+  color: #000000;
+  border-radius: 6px;
+}
 
-.pokemon-card{
+.gen_list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  place-content: space-evenly;
+  flex-direction: row;
+}
+
+input {
+  display: none;
+}
+:checked + label {
+  border: 5px solid #f04040;
+  padding: 5px;
+}
+
+.select__item {
+  margin: 15px;
+  padding: 10px;
+  width: 100px !important;
+  cursor: pointer;
+  font-size: 100% !important;
+  border-radius: 6px !important;
+}
+
+.title {
+  padding-left: 1.1rem;
+  width: 100%;
+  font-size: 200%;
+}
+
+.beginning_button {
+  color: #000000;
+  background-color: #e2e2e2;
+  font-size: 70%;
+  width: max-content;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 30px;
+}
+.pokemon-card {
   flex-direction: column !important;
   border: 5px solid #3a9ec6;
-  border-radius:  5px;
+  border-radius: 5px;
   background-color: #e2e2e2;
   margin: 5px 5px 5px;
   padding: 7px;
@@ -50,214 +89,215 @@ div {
   height: 200px;
 }
 
-.pokemon-card:hover{
-    border:  #f04040 solid 6px;
-    border-radius: 6px;
-    padding: 5.67px;
+.pokemon-card:hover {
+  border: #f04040 solid 6px;
+  border-radius: 6px;
+  padding: 5.67px;
 }
 
-.__image, .__type, .__name, .__number{
-    margin-bottom: 11px;
+.__image,
+.__type,
+.__name,
+.__number {
+  margin-bottom: 11px;
 }
 
- .__image{
-    max-width: 80px;
-    max-height: 80px;
-    padding: 5%;
-    border-radius: 50%;
-    background: #eeeeee;
-    align-self: center !important;
-    display: inline-flex;
-    flex-wrap: wrap;
-    place-content: space-evenly; 
+.__image {
+  max-width: 80px;
+  max-height: 80px;
+  padding: 5%;
+  border-radius: 50%;
+  background: #eeeeee;
+  align-self: center !important;
+  display: inline-flex;
+  flex-wrap: wrap;
+  place-content: space-evenly;
 }
 
-  .__number{
-    align-self: self-start;
-    color: #919191;
-    font-size: 80%;
-    padding-top: 2px;
+.__number {
+  align-self: self-start;
+  color: #919191;
+  font-size: 80%;
+  padding-top: 2px;
 }
-  .__name{
-    color: #313131;
-    font-size: 100%;
-    text-transform: capitalize;
+.__name {
+  color: #313131;
+  font-size: 100%;
+  text-transform: capitalize;
 }
-  .__types{
-    
-    display: inline-flex;
-    flex-direction: row;
+.__types {
+  display: inline-flex;
+  flex-direction: row;
 }
-  .__type{
-
-    border-radius: 3px;
-    font-size: 11px;
-    line-height: 18px;
-    margin: 0 5px;
-    max-width: 110px;
-    text-align: center;
-    text-transform: capitalize;
-    width: 3rem;
+.__type {
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 18px;
+  margin: 0 5px;
+  max-width: 110px;
+  text-align: center;
+  text-transform: capitalize;
+  width: 3rem;
 }
-    .--bug{
-      background: -webkit-linear-gradient(180deg, #A6B91A 50%, #A6B91A 50%);
-      background: -ms-linear-gradient(180deg, #A6B91A 50%, #A6B91A 50%);
-      background: -moz-linear-gradient(180deg, #A6B91A 50%, #A6B91A 50%);
-      background: -o-linear-gradient(180deg, #A6B91A 50%, #A6B91A 50%);
-      background: linear-gradient(180deg, #A6B91A 50%, #A6B91A 50%);
-      background-color: #A6B91A;
-      color: #fff;
+.--bug {
+  background: -webkit-linear-gradient(180deg, #a6b91a 50%, #a6b91a 50%);
+  background: -ms-linear-gradient(180deg, #a6b91a 50%, #a6b91a 50%);
+  background: -moz-linear-gradient(180deg, #a6b91a 50%, #a6b91a 50%);
+  background: -o-linear-gradient(180deg, #a6b91a 50%, #a6b91a 50%);
+  background: linear-gradient(180deg, #a6b91a 50%, #a6b91a 50%);
+  background-color: #a6b91a;
+  color: #fff;
 }
-    .--dark{
-      background: -webkit-linear-gradient(180deg, #705746 50%, #705746 50%);
-      background: -ms-linear-gradient(180deg, #705746 50%, #705746 50%);
-      background: -moz-linear-gradient(180deg, #705746 50%, #705746 50%);
-      background: -o-linear-gradient(180deg, #705746 50%, #705746 50%);
-      background: linear-gradient(180deg, #705746 50%, #705746 50%);
-      background-color: #705746;
-      color: #fff;
+.--dark {
+  background: -webkit-linear-gradient(180deg, #705746 50%, #705746 50%);
+  background: -ms-linear-gradient(180deg, #705746 50%, #705746 50%);
+  background: -moz-linear-gradient(180deg, #705746 50%, #705746 50%);
+  background: -o-linear-gradient(180deg, #705746 50%, #705746 50%);
+  background: linear-gradient(180deg, #705746 50%, #705746 50%);
+  background-color: #705746;
+  color: #fff;
 }
-    .--dragon{
-      background: -webkit-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
-      background: -ms-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
-      background: -moz-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
-      background: -o-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
-      background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
-      background-color: #53a4cf;
-      color: #fff;
+.--dragon {
+  background: -webkit-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background: -ms-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background: -moz-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background: -o-linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background-color: #53a4cf;
+  color: #fff;
 }
-    .--electric{
-      background: -webkit-linear-gradient(180deg, #F7D02C 50%, #F7D02C 50%);
-      background: -ms-linear-gradient(180deg, #F7D02C 50%, #F7D02C 50%);
-      background: -moz-linear-gradient(180deg, #F7D02C 50%, #F7D02C 50%);
-      background: -o-linear-gradient(180deg, #F7D02C 50%, #F7D02C 50%);
-      background: linear-gradient(180deg, #F7D02C 50%, #F7D02C 50%);
-      background-color: #F7D02C;
-      color: #212121;
+.--electric {
+  background: -webkit-linear-gradient(180deg, #f7d02c 50%, #f7d02c 50%);
+  background: -ms-linear-gradient(180deg, #f7d02c 50%, #f7d02c 50%);
+  background: -moz-linear-gradient(180deg, #f7d02c 50%, #f7d02c 50%);
+  background: -o-linear-gradient(180deg, #f7d02c 50%, #f7d02c 50%);
+  background: linear-gradient(180deg, #f7d02c 50%, #f7d02c 50%);
+  background-color: #f7d02c;
+  color: #212121;
 }
-    .--fairy{
-      background: -webkit-linear-gradient(180deg, #D685AD 50%, #D685AD 50%);
-      background: -ms-linear-gradient(180deg, #D685AD 50%, #D685AD 50%);
-      background: -moz-linear-gradient(180deg, #D685AD 50%, #D685AD 50%);
-      background: -o-linear-gradient(180deg, #D685AD 50%, #D685AD 50%);
-      background: linear-gradient(180deg, #D685AD 50%, #D685AD 50%);
-      background-color: #D685AD;
-      color: #212121;
+.--fairy {
+  background: -webkit-linear-gradient(180deg, #d685ad 50%, #d685ad 50%);
+  background: -ms-linear-gradient(180deg, #d685ad 50%, #d685ad 50%);
+  background: -moz-linear-gradient(180deg, #d685ad 50%, #d685ad 50%);
+  background: -o-linear-gradient(180deg, #d685ad 50%, #d685ad 50%);
+  background: linear-gradient(180deg, #d685ad 50%, #d685ad 50%);
+  background-color: #d685ad;
+  color: #212121;
 }
-    .--fighting{
-      background: -webkit-linear-gradient(180deg, #C22E28 50%, #C22E28 50%);
-      background: -ms-linear-gradient(180deg, #C22E28 50%, #C22E28 50%);
-      background: -moz-linear-gradient(180deg, #C22E28 50%, #C22E28 50%);
-      background: -o-linear-gradient(180deg, #C22E28 50%, #C22E28 50%);
-      background: linear-gradient(180deg, #C22E28 50%, #C22E28 50%);
-      background-color: #C22E28;
-      color: #fff;
+.--fighting {
+  background: -webkit-linear-gradient(180deg, #c22e28 50%, #c22e28 50%);
+  background: -ms-linear-gradient(180deg, #c22e28 50%, #c22e28 50%);
+  background: -moz-linear-gradient(180deg, #c22e28 50%, #c22e28 50%);
+  background: -o-linear-gradient(180deg, #c22e28 50%, #c22e28 50%);
+  background: linear-gradient(180deg, #c22e28 50%, #c22e28 50%);
+  background-color: #c22e28;
+  color: #fff;
 }
-    .--fire{
-      background: -webkit-linear-gradient(180deg, #EE8130 50%, #EE8130 50%);
-      background: -ms-linear-gradient(180deg, #EE8130 50%, #EE8130 50%);
-      background: -moz-linear-gradient(180deg, #EE8130 50%, #EE8130 50%);
-      background: -o-linear-gradient(180deg, #EE8130 50%, #EE8130 50%);
-      background: linear-gradient(180deg, #EE8130 50%, #EE8130 50%);
-      background-color: #EE8130;
-      color: #fff;
+.--fire {
+  background: -webkit-linear-gradient(180deg, #ee8130 50%, #ee8130 50%);
+  background: -ms-linear-gradient(180deg, #ee8130 50%, #ee8130 50%);
+  background: -moz-linear-gradient(180deg, #ee8130 50%, #ee8130 50%);
+  background: -o-linear-gradient(180deg, #ee8130 50%, #ee8130 50%);
+  background: linear-gradient(180deg, #ee8130 50%, #ee8130 50%);
+  background-color: #ee8130;
+  color: #fff;
 }
-    .--flying{
-      background: -webkit-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
-      background: -ms-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
-      background: -moz-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
-      background: -o-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
-      background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
-      background-color: #3dc7ef;
-      color: #212121;
+.--flying {
+  background: -webkit-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: -ms-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: -moz-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: -o-linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background-color: #3dc7ef;
+  color: #212121;
 }
-    .--ghost{
-      background: -webkit-linear-gradient(180deg, #735797 50%, #735797 50%);
-      background: -ms-linear-gradient(180deg, #735797 50%, #735797 50%);
-      background: -moz-linear-gradient(180deg, #735797 50%, #735797 50%);
-      background: -o-linear-gradient(180deg, #735797 50%, #735797 50%);
-      background: linear-gradient(180deg, #735797 50%, #735797 50%);
-      background-color: #735797;
-      color: #fff;
+.--ghost {
+  background: -webkit-linear-gradient(180deg, #735797 50%, #735797 50%);
+  background: -ms-linear-gradient(180deg, #735797 50%, #735797 50%);
+  background: -moz-linear-gradient(180deg, #735797 50%, #735797 50%);
+  background: -o-linear-gradient(180deg, #735797 50%, #735797 50%);
+  background: linear-gradient(180deg, #735797 50%, #735797 50%);
+  background-color: #735797;
+  color: #fff;
 }
-    .--grass{
-      background: -webkit-linear-gradient(180deg, #7AC74C 50%, #7AC74C 50%);
-      background: -ms-linear-gradient(180deg, #7AC74C 50%, #7AC74C 50%);
-      background: -moz-linear-gradient(180deg, #7AC74C 50%, #7AC74C 50%);
-      background: -o-linear-gradient(180deg, #7AC74C 50%, #7AC74C 50%);
-      background: linear-gradient(180deg, #7AC74C 50%, #7AC74C 50%);
-      background-color: #7AC74C;
-      color: #212121
+.--grass {
+  background: -webkit-linear-gradient(180deg, #7ac74c 50%, #7ac74c 50%);
+  background: -ms-linear-gradient(180deg, #7ac74c 50%, #7ac74c 50%);
+  background: -moz-linear-gradient(180deg, #7ac74c 50%, #7ac74c 50%);
+  background: -o-linear-gradient(180deg, #7ac74c 50%, #7ac74c 50%);
+  background: linear-gradient(180deg, #7ac74c 50%, #7ac74c 50%);
+  background-color: #7ac74c;
+  color: #212121;
 }
-    .--ground{
-      background: -webkit-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
-      background: -ms-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
-      background: -moz-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
-      background: -o-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
-      background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
-      background-color: #f7de3f;
-      color: #212121;
+.--ground {
+  background: -webkit-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background: -ms-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background: -moz-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background: -o-linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background-color: #f7de3f;
+  color: #212121;
 }
-    .--ice{
-      background: -webkit-linear-gradient(180deg, #96D9D6 50%, #96D9D6 50%);
-      background: -ms-linear-gradient(180deg, #96D9D6 50%, #96D9D6 50%);
-      background: -moz-linear-gradient(180deg, #96D9D6 50%, #96D9D6 50%);
-      background: -o-linear-gradient(180deg, #96D9D6 50%, #96D9D6 50%);
-      background: linear-gradient(180deg, #96D9D6 50%, #96D9D6 50%);
-      background-color: #96D9D6;
-      color: #212121;
+.--ice {
+  background: -webkit-linear-gradient(180deg, #96d9d6 50%, #96d9d6 50%);
+  background: -ms-linear-gradient(180deg, #96d9d6 50%, #96d9d6 50%);
+  background: -moz-linear-gradient(180deg, #96d9d6 50%, #96d9d6 50%);
+  background: -o-linear-gradient(180deg, #96d9d6 50%, #96d9d6 50%);
+  background: linear-gradient(180deg, #96d9d6 50%, #96d9d6 50%);
+  background-color: #96d9d6;
+  color: #212121;
 }
-    .--normal{
-      background: -webkit-linear-gradient(180deg, #A8A77A 50%, #A8A77A 50%);
-      background: -ms-linear-gradient(180deg, #A8A77A 50%, #A8A77A 50%);
-      background: -moz-linear-gradient(180deg, #A8A77A 50%, #A8A77A 50%);
-      background: -o-linear-gradient(180deg, #A8A77A 50%, #A8A77A 50%);
-      background: linear-gradient(180deg, #A8A77A 50%, #A8A77A 50%);
-      background-color: #A8A77A;
-      color: #212121;
+.--normal {
+  background: -webkit-linear-gradient(180deg, #a8a77a 50%, #a8a77a 50%);
+  background: -ms-linear-gradient(180deg, #a8a77a 50%, #a8a77a 50%);
+  background: -moz-linear-gradient(180deg, #a8a77a 50%, #a8a77a 50%);
+  background: -o-linear-gradient(180deg, #a8a77a 50%, #a8a77a 50%);
+  background: linear-gradient(180deg, #a8a77a 50%, #a8a77a 50%);
+  background-color: #a8a77a;
+  color: #212121;
 }
-    .--poison{
-      background: -webkit-linear-gradient(180deg, #A33EA1 50%, #A33EA1 50%);
-      background: -ms-linear-gradient(180deg, #A33EA1 50%, #A33EA1 50%);
-      background: -moz-linear-gradient(180deg, #A33EA1 50%, #A33EA1 50%);
-      background: -o-linear-gradient(180deg, #A33EA1 50%, #A33EA1 50%);
-      background: linear-gradient(180deg, #A33EA1 50%, #A33EA1 50%);
-      background-color: #A33EA1;
-      color: #fff;
+.--poison {
+  background: -webkit-linear-gradient(180deg, #a33ea1 50%, #a33ea1 50%);
+  background: -ms-linear-gradient(180deg, #a33ea1 50%, #a33ea1 50%);
+  background: -moz-linear-gradient(180deg, #a33ea1 50%, #a33ea1 50%);
+  background: -o-linear-gradient(180deg, #a33ea1 50%, #a33ea1 50%);
+  background: linear-gradient(180deg, #a33ea1 50%, #a33ea1 50%);
+  background-color: #a33ea1;
+  color: #fff;
 }
-    .--psychic{
-      background: -webkit-linear-gradient(180deg, #F95587 50%, #F95587 50%);
-      background: -ms-linear-gradient(180deg, #F95587 50%, #F95587 50%);
-      background: -moz-linear-gradient(180deg, #F95587 50%, #F95587 50%);
-      background: -o-linear-gradient(180deg, #F95587 50%, #F95587 50%);
-      background: linear-gradient(180deg, #F95587 50%, #F95587 50%);
-      background-color: #F95587;
-      color: #fff;
+.--psychic {
+  background: -webkit-linear-gradient(180deg, #f95587 50%, #f95587 50%);
+  background: -ms-linear-gradient(180deg, #f95587 50%, #f95587 50%);
+  background: -moz-linear-gradient(180deg, #f95587 50%, #f95587 50%);
+  background: -o-linear-gradient(180deg, #f95587 50%, #f95587 50%);
+  background: linear-gradient(180deg, #f95587 50%, #f95587 50%);
+  background-color: #f95587;
+  color: #fff;
 }
-    .--rock{
-      background: -webkit-linear-gradient(180deg, #B6A136 50%, #B6A136 50%);
-      background: -ms-linear-gradient(180deg, #B6A136 50%, #B6A136 50%);
-      background: -moz-linear-gradient(180deg, #B6A136 50%, #B6A136 50%);
-      background: -o-linear-gradient(180deg, #B6A136 50%, #B6A136 50%);
-      background: linear-gradient(180deg, #B6A136 50%, #B6A136 50%);
-      background-color: #B6A136;
-      color: #fff;
+.--rock {
+  background: -webkit-linear-gradient(180deg, #b6a136 50%, #b6a136 50%);
+  background: -ms-linear-gradient(180deg, #b6a136 50%, #b6a136 50%);
+  background: -moz-linear-gradient(180deg, #b6a136 50%, #b6a136 50%);
+  background: -o-linear-gradient(180deg, #b6a136 50%, #b6a136 50%);
+  background: linear-gradient(180deg, #b6a136 50%, #b6a136 50%);
+  background-color: #b6a136;
+  color: #fff;
 }
-    .--steel{
-      background: -webkit-linear-gradient(180deg, #B7B7CE 50%, #B7B7CE 50%);
-      background: -ms-linear-gradient(180deg, #B7B7CE 50%, #B7B7CE 50%);
-      background: -moz-linear-gradient(180deg, #B7B7CE 50%, #B7B7CE 50%);
-      background: -o-linear-gradient(180deg, #B7B7CE 50%, #B7B7CE 50%);
-      background: linear-gradient(180deg, #B7B7CE 50%, #B7B7CE 50%);
-      background-color: #B7B7CE;
-      color: #212121;
+.--steel {
+  background: -webkit-linear-gradient(180deg, #b7b7ce 50%, #b7b7ce 50%);
+  background: -ms-linear-gradient(180deg, #b7b7ce 50%, #b7b7ce 50%);
+  background: -moz-linear-gradient(180deg, #b7b7ce 50%, #b7b7ce 50%);
+  background: -o-linear-gradient(180deg, #b7b7ce 50%, #b7b7ce 50%);
+  background: linear-gradient(180deg, #b7b7ce 50%, #b7b7ce 50%);
+  background-color: #b7b7ce;
+  color: #212121;
 }
-    .--water{
-      background: -webkit-linear-gradient(180deg, #6390F0 50%, #6390F0 50%);
-      background: -ms-linear-gradient(180deg, #6390F0 50%, #6390F0 50%);
-      background: -moz-linear-gradient(180deg, #6390F0 50%, #6390F0 50%);
-      background: -o-linear-gradient(180deg, #6390F0 50%, #6390F0 50%);
-      background: linear-gradient(180deg, #6390F0 50%, #6390F0 50%);
-      background-color: #6390F0;
-      color: #fff;
-    }
+.--water {
+  background: -webkit-linear-gradient(180deg, #6390f0 50%, #6390f0 50%);
+  background: -ms-linear-gradient(180deg, #6390f0 50%, #6390f0 50%);
+  background: -moz-linear-gradient(180deg, #6390f0 50%, #6390f0 50%);
+  background: -o-linear-gradient(180deg, #6390f0 50%, #6390f0 50%);
+  background: linear-gradient(180deg, #6390f0 50%, #6390f0 50%);
+  background-color: #6390f0;
+  color: #fff;
+}

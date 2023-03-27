@@ -11,6 +11,20 @@ div {
   flex-direction: row;
 }
 
+.previous_next {
+  place-content: center;
+}
+
+.previous,
+.next {
+  padding: 7px;
+  background-color: #e2e2e2;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #000000;
+}
+
 .pokemon-info {
   align-self: flex-end;
   flex-direction: column;
@@ -26,6 +40,10 @@ div {
 .__name,
 .__number {
   margin-bottom: 11px;
+}
+
+.images {
+  margin-top: 11px;
 }
 
 .__image {
@@ -65,6 +83,33 @@ div {
   text-transform: capitalize;
   width: 3rem;
 }
+
+.moves {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  align-self: center;
+}
+
+.move_title {
+  margin-top: 11px;
+  font-size: 150%;
+  align-self: center;
+}
+
+.move-list {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  align-self: flex-start;
+}
+
+.move {
+  align-self: flex-start;
+  text-transform: capitalize;
+  font-size: 120%;
+}
+
 .--bug {
   background: -webkit-linear-gradient(180deg, #a6b91a 50%, #a6b91a 50%);
   background: -ms-linear-gradient(180deg, #a6b91a 50%, #a6b91a 50%);

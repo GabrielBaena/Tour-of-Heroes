@@ -1,29 +1,61 @@
+<div class="previous_next">
+  <a
+    class="previous"
+    *ngIf="pokemon[0].id > 1"
+    href="pokemon-detail/{{ pokemon[0].id - 1 }}"
+    >Previous</a
+  >
+  <a
+    class="next"
+    *ngIf="pokemon[0].id < 1010"
+    href="pokemon-detail/{{ pokemon[0].id + 1 }}"
+    >Next</a
+  >
+</div>
 <div class="pokemon-info" *ngFor="let pokemons of pokemon">
+  <div class="images">
     <div>
-        <div>
-                <img
-                  class="__image"
-                  src="{{ pokemons.sprites.other.home.front_default }}"
-                  alt=""
-                />
-                <span>Normal</span>
-        </div>
-        <div>
-                <img
-                  class="__image"
-                  src="{{ pokemons.sprites.other.home.front_shiny }}"
-                  alt=""
-                />
-                <span>Shiny</span>
-        </div>
+      <img
+        class="__image"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+          pokemons.id
+        }}.png"
+        alt=""
+      />
+      <span>Normal</span>
     </div>
-        <div class="__number">N°{{ pokemons.id }}</div>
-        <div class="__name">{{ pokemons.name }}</div>
-        <div class="__types">
-          <span
-            class="__type --{{ type.type.name }}"
-            *ngFor="let type of pokemons.types"
-            >{{ type.type.name }}</span
-          >
-        </div>
+    <div>
+      <img
+        *ngIf="pokemons.id < 1009"
+        class="__image"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/{{
+          pokemons.id
+        }}.png"
+        alt="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/1.png"
+      />
+      <span *ngIf="pokemons.id < 1009">Shiny</span>
     </div>
+  </div>
+  <div class="__number">N°{{ pokemons.id }}</div>
+  <div class="__name">{{ pokemons.name }}</div>
+  <div class="__types">
+    <span
+      class="__type --{{ type.type.name }}"
+      *ngFor="let type of pokemons.types"
+      >{{ type.type.name }}</span
+    >
+  </div>
+  <div class="moves">
+    <span class="move_title">Level learned move list:</span>
+    <ul class="move-list">
+      <div class="move" *ngFor="let move of pokemons.moves">
+        <div *ngIf="move.version_group_details[0].level_learned_at != 0">
+          <li>
+            <span>{{ move.move.name }} </span>
+            <span>Lv.{{ move.version_group_details[0].level_learned_at }}</span>
+          </li>
+        </div>
+      </div>
+    </ul>
+  </div>
+</div>

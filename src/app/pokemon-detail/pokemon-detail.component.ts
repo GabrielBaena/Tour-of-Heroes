@@ -16,13 +16,15 @@ export class PokemonDetailComponent {
 
     private _pokedexsService:PokedexService) {}
   
-  pokemons:any[] = ['oee']
+  next: number = 2
+  image_url = ''
+  moves:any[] = []
   pokemon: any[] = []
   ngOnInit(): void{
     const name = String(this.route.snapshot.paramMap.get('name'));
     this._pokedexsService.getdata(name)
-      .subscribe((pokemon:any) => this.pokemon.push(pokemon));
-
+      .subscribe((pokemon:any) => this.pokemon.push(pokemon)
+      );
   }
 
 
