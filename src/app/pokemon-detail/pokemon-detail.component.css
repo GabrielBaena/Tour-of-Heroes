@@ -9,6 +9,10 @@ span {
   font-size: 110%;
 }
 
+img {
+  width: 200px;
+}
+
 .pokemon-page {
   display: inline-flex;
   flex-direction: column;
@@ -63,8 +67,8 @@ span {
   margin: 15px;
 }
 
-.__image {
-  padding: 7px;
+div .__image {
+  padding: 40px;
   border-radius: 50%;
   max-width: 200px;
   max-height: 200px;

@@ -9,6 +9,10 @@ a {
   display: flex;
 }
 
+img {
+  width: 80px;
+}
+
 .types {
   display: inline-flex;
 }
@@ -112,13 +116,13 @@ input {
 .__type,
 .__name,
 .__number {
-  margin-bottom: 11px;
+  margin-bottom: 7px;
 }
 
 .__image {
   max-width: 80px;
   max-height: 80px;
-  padding: 5%;
+  padding: 15px;
   border-radius: 50%;
   background: #eeeeee;
   align-self: center !important;

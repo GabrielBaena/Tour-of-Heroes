@@ -47,13 +47,14 @@
           *ngIf="pokemon.show == true"
         >
           <div class="__number">N°{{ pokemon.id }}</div>
-          <img
-            class="__image"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
-              pokemon.id
-            }}.png"
-            alt=""
-          />
+          <div class="__image">
+            <img
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+                pokemon.id
+              }}.png"
+              alt=""
+            />
+          </div>
           <div class="__name">{{ pokemon.name }}</div>
           <div class="__types">
             <span

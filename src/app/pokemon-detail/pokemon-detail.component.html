@@ -16,24 +16,27 @@
   <div class="pokemon-info" *ngFor="let pokemons of pokemon">
     <div class="images">
       <div class="image-display">
-        <img
-          class="__image"
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
-            pokemons.id
-          }}.png"
-          alt=""
-        />
+        <div class="__image">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
+              pokemons.id
+            }}.png"
+            alt=""
+          />
+        </div>
         <span>Normal</span>
       </div>
       <div class="image-display">
-        <img
-          *ngIf="pokemons.id < 1009"
-          class="__image"
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/{{
-            pokemons.id
-          }}.png"
-          alt="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/1.png"
-        />
+        <div>
+          <img
+            *ngIf="pokemons.id < 1009"
+            class="__image"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/{{
+              pokemons.id
+            }}.png"
+            alt="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/1.png"
+          />
+        </div>
         <span *ngIf="pokemons.id < 1009">Shiny</span>
       </div>
     </div>
