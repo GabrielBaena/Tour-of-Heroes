@@ -23,7 +23,12 @@ export class PokemonDetailComponent {
   ngOnInit(): void{
     const name = String(this.route.snapshot.paramMap.get('name'));
     this._pokedexsService.getdata(name)
-      .subscribe((pokemon:any) => this.pokemon.push(pokemon)
+      .subscribe((pokemon:any) => {
+        pokemon.moves.sort(function(a:any, b:any) {
+        return a.version_group_details[0].level_learned_at - b.version_group_details[0].level_learned_at;
+      })
+        this.pokemon.push(pokemon)
+      }
       );
   }
 
