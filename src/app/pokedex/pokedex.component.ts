@@ -1,5 +1,6 @@
-import { NumberFormatStyle } from '@angular/common';
+
 import { Component, inject, OnInit} from '@angular/core';
+
 
 import {PokedexService} from '../pokedex.service'
 
@@ -26,6 +27,7 @@ export class PokedexComponent {
     {pokemons: this.pokemonGen4, gen: 4},{pokemons: this.pokemonGen5, gen: 5},{pokemons: this.pokemonGen6, gen: 6},
     {pokemons: this.pokemonGen7, gen: 7},{pokemons: this.pokemonGen8, gen: 8},{pokemons: this.pokemonGen9, gen: 9},]
 
+
   types: any[] = ["normal",	"fire",	"water", "electric",	"grass", "ice", "fighting", "poison", "ground", "flying",
     "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"];
   
@@ -38,10 +40,8 @@ export class PokedexComponent {
     {type: "dragon", checked: false}, {type: "dark", checked: false}, {type: "steel", checked: false},
     {type: "fairy", checked: false}, ]
   
-    type: {} = {normal: false, fire: false}
-    typeData: any = this.pokemons;
     // List to filter
-    DisplayTypetList: any = this.pokemons;
+  DisplayTypetList: any[] = [];
 
   ngOnInit(): void{
     this.catchGen1()
@@ -53,7 +53,92 @@ export class PokedexComponent {
     this.catchGen7()
     this.catchGen8()
     this.catchGen9()
-  } 
+  }
+
+  ignoreOrderCompare = (a:any[], b:any[]) => {
+    if (a.length !== b.length) return false;
+    const elements = new Set([...a, ...b]);
+    for (const x of elements) {
+        const count1 = a.filter(e => e === x).length;
+        const count2 = b.filter(e => e === x).length;
+        if (count1 !== count2) return false;
+    }
+    return true;
+}
+
+  checkElements(){
+    this.filter_types.forEach(element => {
+      if(element.checked == true) {
+        if(this.DisplayTypetList.includes(element.type)){
+        }
+        else{
+          this.DisplayTypetList.push(element.type)
+          console.log(element.type + " added to Display Type")
+          console.log(this.DisplayTypetList)
+          this.filterPokemon()
+        }
+      } 
+    else if(element.checked == false) {
+      if(this.DisplayTypetList.includes(element.type)){
+        let x = this.DisplayTypetList.indexOf(element.type)
+        this.DisplayTypetList.splice(x, 1)
+        console.log(element.type + " removed from Display Type")
+        console.log(this.DisplayTypetList)
+        this.filterPokemon()
+      }
+      else{
+      }
+    } 
+  })
+ }
+
+  showAll(){
+    this.pokemons.forEach(element => {
+      element.pokemons.forEach((pokemon:any) =>{
+        pokemon.show = true
+      })
+    });
+  }
+
+  filterPokemon(){
+    if(this.DisplayTypetList.length == 0){
+      console.log(this.pokemons)
+      this.showAll()
+    }
+    else if(this.DisplayTypetList.length == 1){
+      this.showAll()
+      this.pokemons.forEach((element:any) => {
+      element.pokemons.forEach((pokemon:any) => {
+        if(pokemon.type.includes(this.DisplayTypetList[0])){
+          console.log(pokemon.name)
+        }
+        else{
+          pokemon.show = false
+        }
+      });
+    });
+    }
+    else if (this.DisplayTypetList.length == 2){
+      this.showAll()
+      this.pokemons.forEach((element:any) => {
+      element.pokemons.forEach((pokemon:any) => {
+        if(this.ignoreOrderCompare(pokemon.type, this.DisplayTypetList)){
+          console.log(pokemon.name)
+        }
+        else{
+          pokemon.show = false
+        }
+      });
+    });
+    }
+    else{
+      this.pokemons.forEach((element:any) => {
+        element.pokemons.forEach((pokemon:any) => {
+          pokemon.show = false})
+        }
+      )
+    }
+  }  
 
   catchGen1(){
     this._pokedexsService.getgen1()
@@ -61,6 +146,11 @@ export class PokedexComponent {
       response.results.forEach((result:any) => {
         this._pokedexsService.getdata(result.name)
           .subscribe((uniqueResponse: any) => {
+            uniqueResponse.type = []
+            uniqueResponse.types.forEach((element:any) => {
+              uniqueResponse.type.push(element.type.name)
+            });
+            uniqueResponse.show = true
             this.pokemonGen1.push(uniqueResponse);
             this.pokemonGen1.sort(function(a, b) {
               return a.id - b.id;
@@ -76,6 +166,11 @@ export class PokedexComponent {
       response.results.forEach((result:any) => {
         this._pokedexsService.getdata(result.name)
           .subscribe((uniqueResponse: any) => {
+            uniqueResponse.type = []
+            uniqueResponse.types.forEach((element:any) => {
+              uniqueResponse.type.push(element.type.name)
+            });
+            uniqueResponse.show = true
             this.pokemonGen2.push(uniqueResponse);
             this.pokemonGen2.sort(function(a, b) {
               return a.id - b.id;
@@ -91,6 +186,11 @@ export class PokedexComponent {
       response.results.forEach((result:any) => {
         this._pokedexsService.getdata(result.name)
           .subscribe((uniqueResponse: any) => {
+            uniqueResponse.type = []
+            uniqueResponse.types.forEach((element:any) => {
+            uniqueResponse.type.push(element.type.name)
+            });
+            uniqueResponse.show = true
             this.pokemonGen3.push(uniqueResponse);
             this.pokemonGen3.sort(function(a, b) {
               return a.id - b.id;
@@ -106,6 +206,11 @@ export class PokedexComponent {
       response.results.forEach((result:any) => {
         this._pokedexsService.getdata(result.name)
           .subscribe((uniqueResponse: any) => {
+            uniqueResponse.type = []
+            uniqueResponse.types.forEach((element:any) => {
+            uniqueResponse.type.push(element.type.name)
+            });
+            uniqueResponse.show = true
             this.pokemonGen4.push(uniqueResponse);
             this.pokemonGen4.sort(function(a, b) {
               return a.id - b.id;
@@ -121,6 +226,11 @@ export class PokedexComponent {
       response.results.forEach((result:any) => {
         this._pokedexsService.getdata(result.name)
           .subscribe((uniqueResponse: any) => {
+            uniqueResponse.type = []
+            uniqueResponse.types.forEach((element:any) => {
+            uniqueResponse.type.push(element.type.name)
+            });
+            uniqueResponse.show = true
             this.pokemonGen5.push(uniqueResponse);
             this.pokemonGen5.sort(function(a, b) {
               return a.id - b.id;
@@ -136,6 +246,11 @@ export class PokedexComponent {
       response.results.forEach((result:any) => {
         this._pokedexsService.getdata(result.name)
           .subscribe((uniqueResponse: any) => {
+            uniqueResponse.type = []
+            uniqueResponse.types.forEach((element:any) => {
+            uniqueResponse.type.push(element.type.name)
+            });
+            uniqueResponse.show = true
             this.pokemonGen6.push(uniqueResponse);
             this.pokemonGen6.sort(function(a, b) {
               return a.id - b.id;
@@ -151,6 +266,11 @@ export class PokedexComponent {
       response.results.forEach((result:any) => {
         this._pokedexsService.getdata(result.name)
           .subscribe((uniqueResponse: any) => {
+            uniqueResponse.type = []
+            uniqueResponse.types.forEach((element:any) => {
+            uniqueResponse.type.push(element.type.name)
+            });
+            uniqueResponse.show = true
             this.pokemonGen7.push(uniqueResponse);
             this.pokemonGen7.sort(function(a, b) {
               return a.id - b.id;
@@ -166,6 +286,11 @@ export class PokedexComponent {
       response.results.forEach((result:any) => {
         this._pokedexsService.getdata(result.name)
           .subscribe((uniqueResponse: any) => {
+            uniqueResponse.type = []
+            uniqueResponse.types.forEach((element:any) => {
+            uniqueResponse.type.push(element.type.name)
+            });
+            uniqueResponse.show = true
             this.pokemonGen8.push(uniqueResponse);
             this.pokemonGen8.sort(function(a, b) {
               return a.id - b.id;
@@ -181,6 +306,11 @@ export class PokedexComponent {
       response.results.forEach((result:any) => {
         this._pokedexsService.getdata(result.name)
           .subscribe((uniqueResponse: any) => {
+            uniqueResponse.type = []
+            uniqueResponse.types.forEach((element:any) => {
+            uniqueResponse.type.push(element.type.name)
+            });
+            uniqueResponse.show = true
             this.pokemonGen9.push(uniqueResponse);
             this.pokemonGen9.sort(function(a, b) {
               return a.id - b.id;
@@ -188,102 +318,5 @@ export class PokedexComponent {
         })
     })
   })
-  }
-
-
-  selectedItems: number =0;
-  counter = 0
-checkedState(event:any, checkBox:any) {
-            if(event.target.checked === true){
-              if(this.counter < 5){
-              this.counter++
-            }else{
-               event.target.checked = false;
-            }
-            }else if(this.counter>0){
-              this.counter--;
-            }
-        }
-  OnChange(event: any) {
-    //Emptying current product list
-    this.DisplayTypetList = [];
-
-    //We are assigning the selected brand products to the product list and if no brand is selected nothing happens
-    for (var i = 0; i < this.selectedBrand.length; i++) {
-      var lst = this.typeData.MobileList.filter((x:any) => x.BrandName == this.selectedBrand[i].BrandName);
-      for (var j = 0; j < lst.length; j++) {
-        this.DisplayTypetList.push(lst[j]);
-      }
-    }
-
-    //We are assigning selected OS product to the product list
-    //If any Brand was selected then we are filtering the list which was filtered in brand filtering, else we are filtering the original list
-    if (this.selectedBrand.length > 0) {
-      if (this.selectedOS.length > 0) {
-        var tempProductlst = this.DisplayTypetList;
-        this.DisplayTypetList = [];
-        for (var i = 0; i < this.selectedOS.length; i++) {
-          //Filtering the same list which was filtered in brand list
-          var lst = tempProductlst.filter((x:any) => x.OSName == this.selectedOS[i].OSName);
-          for (var j = 0; j < lst.length; j++) {
-            this.DisplayTypetList.push(lst[j]);
-          }
-        }
-      }
-    }
-    else {
-      for (var i = 0; i < this.selectedOS.length; i++) {
-        //filtering the original product list
-        var lst = this.typeData.MobileList.filter((x:any) => x.OSName == this.selectedOS[i].OSName);
-        for (var j = 0; j < lst.length; j++) {
-          this.DisplayTypetList.push(lst[j]);
-        }
-      }
-    }
-
-    //We are assigning selected Network products to the product list
-    //If any brand or OS is selected then we are filtering the same list filtered there, else we are filtering from original product list
-    if (this.selectedBrand.length > 0 || this.selectedOS.length > 0) {
-      if (this.selectedNetwork.length > 0) {
-        var tempProductlst = this.DisplayTypetList;
-        this.DisplayTypetList = [];
-        for (var i = 0; i < this.selectedNetwork.length; i++) {
-          //filtering from the same list filtered in Brand and OS
-          var lst = tempProductlst.filter((x:any) => x.NetworkType == this.selectedNetwork[i].NetworkType);
-          for (var j = 0; j < lst.length; j++) {
-            this.DisplayTypetList.push(lst[j]);
-          }
-        }
-      }
-    }
-    else {
-      for (var i = 0; i < this.selectedNetwork.length; i++) {
-        //filtering from original product list
-        var lst = this.typeData.MobileList.filter((x:any) => x.NetworkType == this.selectedNetwork[i].NetworkType);
-        for (var j = 0; j < lst.length; j++) {
-          this.DisplayTypetList.push(lst[j]);
-        }
-      }
-    }
-
-    //If no checkbox is selected assign original product list to display product list
-    if (this.selectedBrand.length == 0 && this.selectedOS.length == 0 && this.selectedNetwork.length == 0) {
-      this.DisplayTypetList = this.typeData.MobileList;
-    }
-  }
-
-  get selectedBrand() {
-    //Get all the selected brands
-    return this.typeData.Brands.filter((opt:any) => opt.Checked)
-  }
-
-  get selectedOS() {
-    //Get all the selected Operating systems
-    return this.typeData.OperatingSystems.filter((opt:any)  => opt.Checked)
-  }
-
-  get selectedNetwork() {
-    //Get all the selected networks
-    return this.typeData.NetworkTypes.filter((opt:any)  => opt.Checked)
   }
 }
