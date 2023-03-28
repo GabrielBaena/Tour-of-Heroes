@@ -53,6 +53,7 @@ export class PokedexComponent {
     this.catchGen7()
     this.catchGen8()
     this.catchGen9()
+
   }
 
   ignoreOrderCompare = (a:any[], b:any[]) => {
@@ -64,7 +65,7 @@ export class PokedexComponent {
         if (count1 !== count2) return false;
     }
     return true;
-}
+  }
 
   checkElements(){
     this.filter_types.forEach(element => {
@@ -90,7 +91,7 @@ export class PokedexComponent {
       }
     } 
   })
- }
+  }
 
   showAll(){
     this.pokemons.forEach(element => {

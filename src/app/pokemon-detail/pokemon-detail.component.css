@@ -4,15 +4,20 @@
   font-family: "Rajdhani", sans-serif;
 }
 
-div {
-  display: flex;
-  flex-wrap: wrap;
-  place-content: space-evenly;
-  flex-direction: row;
+span {
+  align-self: center;
+  font-size: 110%;
+}
+
+.pokemon-page {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .previous_next {
-  place-content: center;
+  margin: 15px 0px;
 }
 
 .previous,
@@ -26,12 +31,14 @@ div {
 }
 
 .pokemon-info {
-  align-self: flex-end;
+  align-items: center;
+  display: flex;
   flex-direction: column;
+  align-self: center;
+  padding: 10px;
   border: 5px solid #3a9ec6;
   border-radius: 5px;
   background-color: #e2e2e2;
-  margin: 5px 5px 5px;
   padding: 7px;
 }
 
@@ -43,19 +50,25 @@ div {
 }
 
 .images {
+  align-items: center;
+  width: min-content;
+  display: flex;
+  flex-direction: row;
   margin-top: 11px;
 }
 
+.image-display {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
 .__image {
+  padding: 7px;
+  border-radius: 50%;
   max-width: 200px;
   max-height: 200px;
-  padding: 5%;
-  border-radius: 50%;
   background: #eeeeee;
-  align-self: center !important;
-  display: inline-flex;
-  flex-wrap: wrap;
-  place-content: space-evenly;
 }
 
 .__number {
@@ -69,9 +82,7 @@ div {
   text-transform: capitalize;
 }
 .__types {
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
+  margin: 10px 0px;
 }
 .__type {
   padding: 7px 20px;
@@ -80,7 +91,6 @@ div {
   line-height: 18px;
   margin: 0 5px;
   max-width: 110px;
-  text-align: center;
   text-transform: capitalize;
   width: 3rem;
 }
