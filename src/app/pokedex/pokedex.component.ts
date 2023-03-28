@@ -1,9 +1,9 @@
 
-import { Component, inject, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 
+import { Observable, Subject } from 'rxjs';
 
 import {PokedexService} from '../pokedex.service'
-
 
 
 @Component({
@@ -27,6 +27,9 @@ export class PokedexComponent {
     {pokemons: this.pokemonGen4, gen: 4},{pokemons: this.pokemonGen5, gen: 5},{pokemons: this.pokemonGen6, gen: 6},
     {pokemons: this.pokemonGen7, gen: 7},{pokemons: this.pokemonGen8, gen: 8},{pokemons: this.pokemonGen9, gen: 9},]
 
+  pokemonNameList: any[] = []
+
+  pokemonSearch: string = ''
 
   types: any[] = ["normal",	"fire",	"water", "electric",	"grass", "ice", "fighting", "poison", "ground", "flying",
     "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"];
@@ -52,9 +55,10 @@ export class PokedexComponent {
     this.catchGen6()
     this.catchGen7()
     this.catchGen8()
-    this.catchGen9()
-
+    this.catchGen9()    
   }
+
+
 
   ignoreOrderCompare = (a:any[], b:any[]) => {
     if (a.length !== b.length) return false;
@@ -152,6 +156,8 @@ export class PokedexComponent {
               uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
+            this.pokemonNameList.push(uniqueResponse.name)
+            this.pokemonNameList.sort()
             this.pokemonGen1.push(uniqueResponse);
             this.pokemonGen1.sort(function(a, b) {
               return a.id - b.id;
@@ -172,6 +178,8 @@ export class PokedexComponent {
               uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
+            this.pokemonNameList.push(uniqueResponse.name)
+            this.pokemonNameList.sort()
             this.pokemonGen2.push(uniqueResponse);
             this.pokemonGen2.sort(function(a, b) {
               return a.id - b.id;
@@ -192,6 +200,8 @@ export class PokedexComponent {
             uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
+            this.pokemonNameList.push(uniqueResponse.name)
+            this.pokemonNameList.sort()
             this.pokemonGen3.push(uniqueResponse);
             this.pokemonGen3.sort(function(a, b) {
               return a.id - b.id;
@@ -212,6 +222,8 @@ export class PokedexComponent {
             uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
+            this.pokemonNameList.push(uniqueResponse.name)
+            this.pokemonNameList.sort()
             this.pokemonGen4.push(uniqueResponse);
             this.pokemonGen4.sort(function(a, b) {
               return a.id - b.id;
@@ -232,6 +244,8 @@ export class PokedexComponent {
             uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
+            this.pokemonNameList.push(uniqueResponse.name)
+            this.pokemonNameList.sort()
             this.pokemonGen5.push(uniqueResponse);
             this.pokemonGen5.sort(function(a, b) {
               return a.id - b.id;
@@ -252,6 +266,8 @@ export class PokedexComponent {
             uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
+            this.pokemonNameList.push(uniqueResponse.name)
+            this.pokemonNameList.sort()
             this.pokemonGen6.push(uniqueResponse);
             this.pokemonGen6.sort(function(a, b) {
               return a.id - b.id;
@@ -272,6 +288,8 @@ export class PokedexComponent {
             uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
+            this.pokemonNameList.push(uniqueResponse.name)
+            this.pokemonNameList.sort()
             this.pokemonGen7.push(uniqueResponse);
             this.pokemonGen7.sort(function(a, b) {
               return a.id - b.id;
@@ -292,6 +310,8 @@ export class PokedexComponent {
             uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
+            this.pokemonNameList.push(uniqueResponse.name)
+            this.pokemonNameList.sort()
             this.pokemonGen8.push(uniqueResponse);
             this.pokemonGen8.sort(function(a, b) {
               return a.id - b.id;
@@ -312,6 +332,8 @@ export class PokedexComponent {
             uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
+            this.pokemonNameList.push(uniqueResponse.name)
+            this.pokemonNameList.sort()
             this.pokemonGen9.push(uniqueResponse);
             this.pokemonGen9.sort(function(a, b) {
               return a.id - b.id;

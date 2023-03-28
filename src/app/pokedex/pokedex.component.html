@@ -1,14 +1,26 @@
-<h2 id="beginning" class="title">Select a generation:</h2>
-<div class="gen__list">
-  <a
-    *ngFor="let generation of pokemons"
-    href="/pokedex#generation_{{ generation.gen }}"
-    class="select__gen"
-    >Generation {{ generation.gen }}</a
-  >
-</div>
-<h2 class="title">Select type(s):</h2>
-<form action="">
+<div class="filters">
+  <label class="search-box-label" for="search-box">Search pokemon:</label>
+  <input type="search" id="search-box" [(ngModel)]="pokemonSearch" />
+  <div class="search-result">
+    <ng-container *ngFor="let pokemon of pokemonNameList">
+      <a
+        class="pokemon-result"
+        *ngIf="pokemon.includes(pokemonSearch.toLowerCase()) && pokemonSearch"
+        href="/pokemon-detail/{{ pokemon }}"
+        >{{ pokemon }}
+      </a>
+    </ng-container>
+  </div>
+  <h2 id="beginning" class="title">Select a generation:</h2>
+  <div class="gen__list">
+    <a
+      *ngFor="let generation of pokemons"
+      href="/pokedex#generation_{{ generation.gen }}"
+      class="select__gen"
+      >Generation {{ generation.gen }}</a
+    >
+  </div>
+  <h2 class="title">Select type(s):</h2>
   <div class="select">
     <div class="types" *ngFor="let types of filter_types">
       <input
@@ -28,8 +40,7 @@
     </div>
     <div></div>
   </div>
-  <input type="submit" name="submit" value="Filter" />
-</form>
+</div>
 <div>
   <div *ngFor="let generation of pokemons">
     <h2 class="header">
