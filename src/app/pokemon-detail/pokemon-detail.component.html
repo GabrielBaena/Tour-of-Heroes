@@ -61,6 +61,9 @@
         >{{ (pokemons.height * 0.1).toFixed(2) }} meters</span
       >
     </div>
+    <div class="pokedex-entrie">
+      <span>{{ pokemon[1].flavor_text_entries[4].flavor_text }}</span>
+    </div>
     <div class="base-stats">
       <div *ngFor="let stats of pokemons.stats" class="stats-element">
         <span class="stat-title">{{ stats.stat.name.toUpperCase() }}</span>
