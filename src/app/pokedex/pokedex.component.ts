@@ -153,7 +153,7 @@ export class PokedexComponent {
           .subscribe((uniqueResponse: any) => {
             uniqueResponse.type = []
             uniqueResponse.types.forEach((element:any) => {
-              uniqueResponse.type.push(element.type.name)
+            uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
             this.pokemonNameList.push(uniqueResponse.name)
@@ -175,7 +175,7 @@ export class PokedexComponent {
           .subscribe((uniqueResponse: any) => {
             uniqueResponse.type = []
             uniqueResponse.types.forEach((element:any) => {
-              uniqueResponse.type.push(element.type.name)
+            uniqueResponse.type.push(element.type.name)
             });
             uniqueResponse.show = true
             this.pokemonNameList.push(uniqueResponse.name)

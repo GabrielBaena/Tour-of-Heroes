@@ -41,14 +41,36 @@
         <span *ngIf="pokemons.id < 1009">Shiny</span>
       </div>
     </div>
-    <div class="__number">N°{{ pokemons.id }}</div>
-    <div class="__name">{{ pokemons.name }}</div>
+    <div class="__number">
+      <span> N°{{ pokemons.id }}</span>
+    </div>
+    <div class="__name">
+      <span>{{ pokemons.name }}</span>
+    </div>
     <div class="__types">
-      <span
+      <div
         class="__type --{{ type.type.name }}"
         *ngFor="let type of pokemons.types"
-        >{{ type.type.name }}</span
       >
+        {{ type.type.name }}
+      </div>
+    </div>
+    <div class="physiognomy-detail">
+      <span class="weight">{{ (pokemons.weight * 0.1).toFixed(2) }} kg</span>
+      <span class="height"
+        >{{ (pokemons.height * 0.1).toFixed(2) }} meters</span
+      >
+    </div>
+    <div class="base-stats">
+      <div *ngFor="let stats of pokemons.stats" class="stats-element">
+        <span class="stat-title">{{ stats.stat.name.toUpperCase() }}</span>
+        <progress
+          class="{{ stats.stat.name }} bar"
+          value="{{ stats.base_stat }}"
+          max="255"
+        ></progress>
+        <span class="stat-value"> {{ stats.base_stat }}</span>
+      </div>
     </div>
     <div class="moves">
       <span class="move_title">Level learned move list:</span>

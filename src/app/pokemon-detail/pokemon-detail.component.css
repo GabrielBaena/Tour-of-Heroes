@@ -5,12 +5,20 @@
 }
 
 span {
+  display: inline-flex;
   align-self: center;
   font-size: 110%;
 }
 
 img {
   width: 200px;
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30%;
+  height: 20px;
 }
 
 .pokemon-page {
@@ -38,8 +46,6 @@ img {
   align-items: center;
   display: flex;
   flex-direction: column;
-  align-self: center;
-  padding: 10px;
   border: 5px solid #3a9ec6;
   border-radius: 5px;
   background-color: #e2e2e2;
@@ -47,10 +53,11 @@ img {
 }
 
 .__image,
-.__type,
 .__name,
-.__number {
-  margin-bottom: 11px;
+.__number,
+.physiognomy-detail,
+.move_title {
+  margin-bottom: 10px;
 }
 
 .images {
@@ -65,9 +72,10 @@ img {
   display: flex;
   flex-direction: column;
   margin: 15px;
+  font-size: 120%;
 }
 
-div .__image {
+.__image {
   padding: 40px;
   border-radius: 50%;
   max-width: 200px;
@@ -78,25 +86,132 @@ div .__image {
 .__number {
   color: #919191;
   font-size: 160%;
-  padding-top: 2px;
 }
+
 .__name {
   color: #313131;
   font-size: 200%;
   text-transform: capitalize;
 }
+
 .__types {
+  display: flex;
   margin: 10px 0px;
 }
 .__type {
-  padding: 7px 20px;
+  display: flex;
+  justify-content: center;
+  padding: 2px 15px;
   border-radius: 3px;
   font-size: 20px;
-  line-height: 18px;
   margin: 0 5px;
   max-width: 110px;
   text-transform: capitalize;
   width: 3rem;
+}
+
+.physiognomy-detail {
+  margin-top: 10px;
+  display: flex;
+  place-content: space-evenly;
+  width: 50%;
+  font-size: 120%;
+  color: #919191;
+}
+
+.base-stats {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.stat-title {
+  width: 35%;
+}
+
+.stats-element {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-value {
+  display: flex;
+  width: 10%;
+  justify-content: flex-end;
+}
+
+.hp::-webkit-progress-bar {
+  background-color: #ff7575;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.hp::-webkit-progress-value {
+  background-color: #ff0000;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.attack::-webkit-progress-bar {
+  background-color: #f5ac78;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.attack::-webkit-progress-value {
+  background-color: #f08030;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.defense::-webkit-progress-bar {
+  background-color: #fae078;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.defense::-webkit-progress-value {
+  background-color: #f8d030;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.special-attack::-webkit-progress-bar {
+  background-color: #9db7f5;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.special-attack::-webkit-progress-value {
+  background-color: #6890f0;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.special-defense::-webkit-progress-bar {
+  background-color: #a7db8d;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.special-defense::-webkit-progress-value {
+  background-color: #78c850;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.speed::-webkit-progress-bar {
+  background-color: #fa92b2;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.speed::-webkit-progress-value {
+  background-color: #f85888;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
 .moves {
@@ -107,14 +222,12 @@ div .__image {
 }
 
 .move_title {
-  margin-top: 11px;
   font-size: 150%;
   align-self: center;
 }
 
 .move-list {
-  display: flex;
-  flex-direction: column;
+  margin: 0px;
   width: max-content;
   align-self: flex-start;
 }
@@ -134,7 +247,7 @@ div .__image {
   color: #fff;
 }
 .--dragon {
-  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background: #6f35fc;
   color: #fff;
 }
 .--electric {
@@ -154,7 +267,7 @@ div .__image {
   color: #fff;
 }
 .--flying {
-  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: #a98ff3;
   color: #212121;
 }
 .--ghost {
@@ -166,7 +279,7 @@ div .__image {
   color: #212121;
 }
 .--ground {
-  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background: #e2bf65;
   color: #212121;
 }
 .--ice {
