@@ -56,6 +56,7 @@ progress[value] {
 .__image,
 .__name,
 .__number,
+.__types,
 .physiognomy-detail,
 .move_title,
 .pokedex-entrie {
@@ -68,7 +69,7 @@ progress[value] {
   display: flex;
   flex-direction: row;
   margin-top: 11px;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .image-display {
@@ -79,10 +80,10 @@ progress[value] {
 }
 
 .__image {
-  padding: 40px;
+  padding: 10%;
   border-radius: 50%;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 300px;
+  max-height: 300px;
   background: #eeeeee;
 }
 
@@ -99,7 +100,6 @@ progress[value] {
 
 .__types {
   display: flex;
-  margin: 10px 0px;
 }
 .__type {
   display: flex;
@@ -113,6 +113,12 @@ progress[value] {
   width: 3rem;
 }
 
+.pokedex-entrie {
+  color: #919191;
+  width: 70%;
+  text-align: center;
+}
+
 .physiognomy-detail {
   margin-top: 10px;
   display: flex;
@@ -122,10 +128,20 @@ progress[value] {
   color: #919191;
 }
 
-.pokedex-entrie {
-  color: #919191;
-  width: 70%;
-  text-align: center;
+.gender {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.female {
+  color: #ff0000;
+  margin: 5px 10px;
+}
+
+.male {
+  color: #001aff;
+  margin: 5px 10px;
 }
 
 .base-stats {

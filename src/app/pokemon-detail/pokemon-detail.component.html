@@ -78,6 +78,37 @@
         >{{ (pokemon[0].height * 0.1).toFixed(2) }} meters</span
       >
     </div>
+    <div class="gender">
+      <ng-container *ngIf="pokemon[1].gender_rate == 0">
+        <span class="male">&#9794; 100% </span>
+      </ng-container>
+      <ng-container *ngIf="pokemon[1].gender_rate == 1">
+        <span class="female">&#9792; 12.5%</span>
+        <span class="male">&#9794; 87.5%</span>
+      </ng-container>
+      <ng-container *ngIf="pokemon[1].gender_rate == 2">
+        <span class="female">&#9792; 25%</span>
+        <span class="male">&#9794; 75%</span>
+      </ng-container>
+      <ng-container *ngIf="pokemon[1].gender_rate == 3">
+        <span class="female">&#9792; 50%</span>
+        <span class="male">&#9794; 50%</span>
+      </ng-container>
+      <ng-container *ngIf="pokemon[1].gender_rate == 4">
+        <span class="female">&#9792; 75%</span>
+        <span class="male">&#9794; 25%</span>
+      </ng-container>
+      <ng-container *ngIf="pokemon[1].gender_rate == 5">
+        <span class="female">&#9792; 87.5%</span>
+        <span class="male">&#9794; 12.5%</span>
+      </ng-container>
+      <ng-container *ngIf="pokemon[1].gender_rate == 6">
+        <span class="female">&#9792; 100%</span>
+      </ng-container>
+      <ng-container *ngIf="pokemon[1].gender_rate == 7">
+        <span>unkown</span>
+      </ng-container>
+    </div>
     <div class="base-stats">
       <div *ngFor="let stats of pokemon[0].stats" class="stats-element">
         <span class="stat-title">{{ stats.stat.name.toUpperCase() }}</span>
