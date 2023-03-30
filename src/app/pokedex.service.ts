@@ -33,7 +33,7 @@ export class PokedexService {
       )
   }
 
-  getpokemospecies(url:string) {
+  getdatabyurl(url:string) {
     return  this._http.get<{}>(url)
       .pipe(
         tap(),

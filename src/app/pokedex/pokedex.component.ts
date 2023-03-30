@@ -78,8 +78,6 @@ export class PokedexComponent {
         }
         else{
           this.DisplayTypetList.push(element.type)
-          console.log(element.type + " added to Display Type")
-          console.log(this.DisplayTypetList)
           this.filterPokemon()
         }
       } 
@@ -87,8 +85,6 @@ export class PokedexComponent {
       if(this.DisplayTypetList.includes(element.type)){
         let x = this.DisplayTypetList.indexOf(element.type)
         this.DisplayTypetList.splice(x, 1)
-        console.log(element.type + " removed from Display Type")
-        console.log(this.DisplayTypetList)
         this.filterPokemon()
       }
       else{
@@ -107,7 +103,6 @@ export class PokedexComponent {
 
   filterPokemon(){
     if(this.DisplayTypetList.length == 0){
-      console.log(this.pokemons)
       this.showAll()
     }
     else if(this.DisplayTypetList.length == 1){
@@ -115,7 +110,6 @@ export class PokedexComponent {
       this.pokemons.forEach((element:any) => {
       element.pokemons.forEach((pokemon:any) => {
         if(pokemon.type.includes(this.DisplayTypetList[0])){
-          console.log(pokemon.name)
         }
         else{
           pokemon.show = false
@@ -128,7 +122,6 @@ export class PokedexComponent {
       this.pokemons.forEach((element:any) => {
       element.pokemons.forEach((pokemon:any) => {
         if(this.ignoreOrderCompare(pokemon.type, this.DisplayTypetList)){
-          console.log(pokemon.name)
         }
         else{
           pokemon.show = false
@@ -149,7 +142,7 @@ export class PokedexComponent {
     this._pokedexsService.getgen1()
     .subscribe((response:any)=>{
       response.results.forEach((result:any) => {
-        this._pokedexsService.getdata(result.name)
+        this._pokedexsService.getdatabyurl(result.url)
           .subscribe((uniqueResponse: any) => {
             uniqueResponse.type = []
             uniqueResponse.types.forEach((element:any) => {
@@ -325,7 +318,7 @@ export class PokedexComponent {
     this._pokedexsService.getgen9()
     .subscribe((response:any)=>{
       response.results.forEach((result:any) => {
-        this._pokedexsService.getdata(result.name)
+        this._pokedexsService.getdatabyurl(result.url)
           .subscribe((uniqueResponse: any) => {
             uniqueResponse.type = []
             uniqueResponse.types.forEach((element:any) => {
@@ -338,8 +331,9 @@ export class PokedexComponent {
             this.pokemonGen9.sort(function(a, b) {
               return a.id - b.id;
           })
-        })
+          console.log(this.pokemonGen9)
+        }) 
     })
-  })
+  }) 
   }
 }
