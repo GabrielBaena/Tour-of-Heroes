@@ -1,16 +1,18 @@
 <div id="beginning" class="filters">
-  <label class="search-box-label" for="search-box">Search pokemon:</label>
-  <input type="search" id="search-box" [(ngModel)]="pokemonSearch" />
-  <div class="search-result">
-    <ng-container *ngFor="let pokemon of pokemonNameList">
-      <a
-        class="pokemon-result"
-        *ngIf="pokemon.includes(pokemonSearch.toLowerCase()) && pokemonSearch"
-        href="/pokemon-detail/{{ pokemon }}"
-        target="_blank"
-        >{{ pokemon }}
-      </a>
-    </ng-container>
+  <div class="search">
+    <label class="search-box-label" for="search-box">Search pokemon:</label>
+    <input type="search" id="search-box" [(ngModel)]="pokemonSearch" />
+    <div class="search-result">
+      <ng-container *ngFor="let pokemon of pokemonNameList">
+        <a
+          class="pokemon-result"
+          *ngIf="pokemon.includes(pokemonSearch.toLowerCase()) && pokemonSearch"
+          href="/pokemon-detail/{{ pokemon }}"
+          target="_blank"
+          >{{ pokemon }}
+        </a>
+      </ng-container>
+    </div>
   </div>
   <h2 class="title">Select a generation:</h2>
   <div class="gen__list">
@@ -23,20 +25,20 @@
   </div>
   <h2 class="title">Select type(s):</h2>
   <div class="select">
-    <div class="types" *ngFor="let types of filter_types">
+    <div class="types" *ngFor="let type of types">
       <input
         (change)="checkElements()"
-        [(ngModel)]="types.checked"
+        [(ngModel)]="type.checked"
         name="type"
         type="checkbox"
         class="checkbox_type"
-        id="{{ types.type }}"
-        value="{{ types.type }}"
+        id="{{ type.type }}"
+        value="{{ type.type }}"
       />
       <label
-        for="{{ types.type }}"
-        class="double-checkbox select__item  --{{ types.type }}"
-        >{{ types.type }}</label
+        for="{{ type.type }}"
+        class="double-checkbox select__item  --{{ type.type }}"
+        >{{ type.type }}</label
       >
     </div>
   </div>
@@ -60,9 +62,9 @@
           <div class="__number">N°{{ pokemon.id }}</div>
           <div class="__image">
             <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{
-                pokemon.id
-              }}.png"
+              src="{{
+                pokemon.sprites.other['official-artwork'].front_default
+              }}"
               alt=""
             />
           </div>

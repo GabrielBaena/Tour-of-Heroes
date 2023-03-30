@@ -10,7 +10,7 @@ a {
 }
 
 img {
-  width: 80px;
+  width: 100%;
 }
 
 .filters {
@@ -18,6 +18,10 @@ img {
   margin: 10px;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.search {
+  width: 100%;
 }
 
 .search-box-label {
@@ -95,16 +99,15 @@ img {
 }
 
 :hover + label {
-  border: 5px solid #3a9ec6;
-  padding: 5.34px;
+  border: 5px solid #f04040;
 }
 
 :checked + label {
-  border: 5px solid #f04040;
-  padding: 5.34px;
+  box-shadow: 0 5px 1px rgba(0, 0, 0, 0.5) inset;
 }
 
 .select__item {
+  border: 5px solid #3a9ec6;
   margin: 5px 30px;
   padding: 10px;
   width: 100px;
@@ -176,8 +179,7 @@ img {
 }
 
 .__image {
-  max-width: 80px;
-  max-height: 80px;
+  max-width: 60%;
   padding: 15px;
   border-radius: 50%;
   background: #eeeeee;
