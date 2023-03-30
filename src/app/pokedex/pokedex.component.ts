@@ -31,12 +31,12 @@ export class PokedexComponent {
 
   pokemonSearch: string = ''
 
-  types: any[] = ["normal",	"fire",	"water", "electric",	"grass", "ice", "fighting", "poison", "ground", "flying",
+  types: any[] = ["normal",	"fire",	"water", "grass", "electric", "ice", "fighting", "poison", "ground", "flying",
     "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"];
   
 
   filter_types: any[] = [{type: "normal", checked: false}, {type: "fire", checked: false},
-    {type: "water", checked: false}, {type: "electric", checked: false}, {type: "grass", checked: false},
+    {type: "water", checked: false}, {type: "grass", checked: false}, {type: "electric", checked: false},
     {type: "ice", checked: false}, {type: "fighting", checked: false}, {type: "poison", checked: false},
     {type: "ground", checked: false}, {type: "flying", checked: false}, {type: "psychic", checked: false},
     {type: "bug", checked: false}, {type: "rock", checked: false}, {type: "ghost", checked: false},
