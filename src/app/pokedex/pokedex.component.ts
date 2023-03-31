@@ -4,6 +4,8 @@ import { Observable, Subject } from 'rxjs';
 
 import { PokedexService } from '../pokedex.service';
 
+import { Pokemon } from '../pokemon';
+
 @Component({
   selector: 'app-pokedex',
   templateUrl: './pokedex.component.html',
@@ -62,15 +64,16 @@ export class PokedexComponent {
   DisplayTypetList: any[] = [];
 
   ngOnInit(): void {
-    this.catchGen1();
-    this.catchGen2();
-    this.catchGen3();
-    this.catchGen4();
-    this.catchGen5();
-    this.catchGen6();
-    this.catchGen7();
-    this.catchGen8();
-    this.catchGen9();
+    // this.catchGen1();
+    // this.catchGen2();
+    // this.catchGen3();
+    // this.catchGen4();
+    // this.catchGen5();
+    // this.catchGen6();
+    // this.catchGen7();
+    // this.catchGen8();
+    // this.catchGen9();
+    this.catchGens();
   }
 
   ignoreOrderCompare = (a: any[], b: any[]) => {
@@ -141,200 +144,36 @@ export class PokedexComponent {
     }
   }
 
-  catchGen1() {
-    this._pokedexsService.getgen1().subscribe((response: any) => {
+  catchGens() {
+    this._pokedexsService.getgeneratios().subscribe((response: any) => {
       response.results.forEach((result: any) => {
         this._pokedexsService
           .getdatabyurl(result.url)
           .subscribe((uniqueResponse: any) => {
-            uniqueResponse.type = [];
-            uniqueResponse.types.forEach((element: any) => {
-              uniqueResponse.type.push(element.type.name);
+            this.pokemons[uniqueResponse.id - 1].gen = uniqueResponse.id;
+            uniqueResponse.pokemon_species.forEach((element: any) => {
+              this._pokedexsService
+                .getdatabyurl(element.url)
+                .subscribe((species: any) => {
+                  this._pokedexsService
+                    .getpokemon(species.id)
+                    .subscribe((pokemon: any) => {
+                      pokemon.type = [];
+                      pokemon.types.forEach((element: any) => {
+                        pokemon.type.push(element.type.name);
+                      });
+                      pokemon.show = true;
+                      this.pokemons[uniqueResponse.id - 1].pokemons.push(
+                        pokemon
+                      );
+                      this.pokemons[uniqueResponse.id - 1].pokemons.sort(
+                        function (a: any, b: any) {
+                          return a.id - b.id;
+                        }
+                      );
+                    });
+                });
             });
-            uniqueResponse.show = true;
-            this.pokemonNameList.push(uniqueResponse.name);
-            this.pokemonNameList.sort();
-            this.pokemonGen1.push(uniqueResponse);
-            this.pokemonGen1.sort(function (a, b) {
-              return a.id - b.id;
-            });
-          });
-      });
-    });
-  }
-
-  catchGen2() {
-    this._pokedexsService.getgen2().subscribe((response: any) => {
-      response.results.forEach((result: any) => {
-        this._pokedexsService
-          .getdata(result.name)
-          .subscribe((uniqueResponse: any) => {
-            uniqueResponse.type = [];
-            uniqueResponse.types.forEach((element: any) => {
-              uniqueResponse.type.push(element.type.name);
-            });
-            uniqueResponse.show = true;
-            this.pokemonNameList.push(uniqueResponse.name);
-            this.pokemonNameList.sort();
-            this.pokemonGen2.push(uniqueResponse);
-            this.pokemonGen2.sort(function (a, b) {
-              return a.id - b.id;
-            });
-          });
-      });
-    });
-  }
-
-  catchGen3() {
-    this._pokedexsService.getgen3().subscribe((response: any) => {
-      response.results.forEach((result: any) => {
-        this._pokedexsService
-          .getdata(result.name)
-          .subscribe((uniqueResponse: any) => {
-            uniqueResponse.type = [];
-            uniqueResponse.types.forEach((element: any) => {
-              uniqueResponse.type.push(element.type.name);
-            });
-            uniqueResponse.show = true;
-            this.pokemonNameList.push(uniqueResponse.name);
-            this.pokemonNameList.sort();
-            this.pokemonGen3.push(uniqueResponse);
-            this.pokemonGen3.sort(function (a, b) {
-              return a.id - b.id;
-            });
-          });
-      });
-    });
-  }
-
-  catchGen4() {
-    this._pokedexsService.getgen4().subscribe((response: any) => {
-      response.results.forEach((result: any) => {
-        this._pokedexsService
-          .getdata(result.name)
-          .subscribe((uniqueResponse: any) => {
-            uniqueResponse.type = [];
-            uniqueResponse.types.forEach((element: any) => {
-              uniqueResponse.type.push(element.type.name);
-            });
-            uniqueResponse.show = true;
-            this.pokemonNameList.push(uniqueResponse.name);
-            this.pokemonNameList.sort();
-            this.pokemonGen4.push(uniqueResponse);
-            this.pokemonGen4.sort(function (a, b) {
-              return a.id - b.id;
-            });
-          });
-      });
-    });
-  }
-
-  catchGen5() {
-    this._pokedexsService.getgen5().subscribe((response: any) => {
-      response.results.forEach((result: any) => {
-        this._pokedexsService
-          .getdata(result.name)
-          .subscribe((uniqueResponse: any) => {
-            uniqueResponse.type = [];
-            uniqueResponse.types.forEach((element: any) => {
-              uniqueResponse.type.push(element.type.name);
-            });
-            uniqueResponse.show = true;
-            this.pokemonNameList.push(uniqueResponse.name);
-            this.pokemonNameList.sort();
-            this.pokemonGen5.push(uniqueResponse);
-            this.pokemonGen5.sort(function (a, b) {
-              return a.id - b.id;
-            });
-          });
-      });
-    });
-  }
-
-  catchGen6() {
-    this._pokedexsService.getgen6().subscribe((response: any) => {
-      response.results.forEach((result: any) => {
-        this._pokedexsService
-          .getdata(result.name)
-          .subscribe((uniqueResponse: any) => {
-            uniqueResponse.type = [];
-            uniqueResponse.types.forEach((element: any) => {
-              uniqueResponse.type.push(element.type.name);
-            });
-            uniqueResponse.show = true;
-            this.pokemonNameList.push(uniqueResponse.name);
-            this.pokemonNameList.sort();
-            this.pokemonGen6.push(uniqueResponse);
-            this.pokemonGen6.sort(function (a, b) {
-              return a.id - b.id;
-            });
-          });
-      });
-    });
-  }
-
-  catchGen7() {
-    this._pokedexsService.getgen7().subscribe((response: any) => {
-      response.results.forEach((result: any) => {
-        this._pokedexsService
-          .getdata(result.name)
-          .subscribe((uniqueResponse: any) => {
-            uniqueResponse.type = [];
-            uniqueResponse.types.forEach((element: any) => {
-              uniqueResponse.type.push(element.type.name);
-            });
-            uniqueResponse.show = true;
-            this.pokemonNameList.push(uniqueResponse.name);
-            this.pokemonNameList.sort();
-            this.pokemonGen7.push(uniqueResponse);
-            this.pokemonGen7.sort(function (a, b) {
-              return a.id - b.id;
-            });
-          });
-      });
-    });
-  }
-
-  catchGen8() {
-    this._pokedexsService.getgen8().subscribe((response: any) => {
-      response.results.forEach((result: any) => {
-        this._pokedexsService
-          .getdata(result.name)
-          .subscribe((uniqueResponse: any) => {
-            uniqueResponse.type = [];
-            uniqueResponse.types.forEach((element: any) => {
-              uniqueResponse.type.push(element.type.name);
-            });
-            uniqueResponse.show = true;
-            this.pokemonNameList.push(uniqueResponse.name);
-            this.pokemonNameList.sort();
-            this.pokemonGen8.push(uniqueResponse);
-            this.pokemonGen8.sort(function (a, b) {
-              return a.id - b.id;
-            });
-          });
-      });
-    });
-  }
-
-  catchGen9() {
-    this._pokedexsService.getgen9().subscribe((response: any) => {
-      response.results.forEach((result: any) => {
-        this._pokedexsService
-          .getdatabyurl(result.url)
-          .subscribe((uniqueResponse: any) => {
-            uniqueResponse.type = [];
-            uniqueResponse.types.forEach((element: any) => {
-              uniqueResponse.type.push(element.type.name);
-            });
-            uniqueResponse.show = true;
-            this.pokemonNameList.push(uniqueResponse.name);
-            this.pokemonNameList.sort();
-            this.pokemonGen9.push(uniqueResponse);
-            this.pokemonGen9.sort(function (a, b) {
-              return a.id - b.id;
-            });
-            console.log(this.pokemonGen9);
           });
       });
     });

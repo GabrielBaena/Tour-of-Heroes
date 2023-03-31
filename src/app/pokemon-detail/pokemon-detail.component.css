@@ -10,10 +10,6 @@ span {
   font-size: 110%;
 }
 
-img {
-  width: 100%;
-}
-
 progress[value] {
   -webkit-appearance: none;
   appearance: none;
@@ -85,6 +81,10 @@ progress[value] {
   max-width: 300px;
   max-height: 300px;
   background: #eeeeee;
+}
+
+.image {
+  width: 100%;
 }
 
 .__number {
@@ -176,7 +176,7 @@ progress[value] {
 .hp::-webkit-progress-value {
   background-color: #ff0000;
   border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 2px 7px rgb(255, 255, 255, 0.75) inset;
 }
 
 .attack::-webkit-progress-bar {
@@ -188,7 +188,7 @@ progress[value] {
 .attack::-webkit-progress-value {
   background-color: #f08030;
   border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 2px 7px rgb(255, 255, 255, 0.5) inset;
 }
 
 .defense::-webkit-progress-bar {
@@ -200,7 +200,7 @@ progress[value] {
 .defense::-webkit-progress-value {
   background-color: #f8d030;
   border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 2px 7px rgb(255, 255, 255, 0.5) inset;
 }
 
 .special-attack::-webkit-progress-bar {
@@ -212,7 +212,7 @@ progress[value] {
 .special-attack::-webkit-progress-value {
   background-color: #6890f0;
   border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 2px 7px rgb(255, 255, 255, 0.5) inset;
 }
 
 .special-defense::-webkit-progress-bar {
@@ -224,7 +224,7 @@ progress[value] {
 .special-defense::-webkit-progress-value {
   background-color: #78c850;
   border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 2px 7px rgb(255, 255, 255, 0.5) inset;
 }
 
 .speed::-webkit-progress-bar {
@@ -236,7 +236,7 @@ progress[value] {
 .speed::-webkit-progress-value {
   background-color: #f85888;
   border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 2px 7px rgb(255, 255, 255, 0.5) inset;
 }
 
 .moves {

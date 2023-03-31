@@ -18,10 +18,11 @@
       <div class="image-display">
         <div class="__image">
           <img
+            class="image"
             src="{{
               pokemon[0].sprites.other['official-artwork'].front_default
             }}"
-            alt=""
+            alt="Loading..."
           />
         </div>
         <span>Normal</span>
@@ -33,11 +34,12 @@
         <div>
           <div class="__image">
             <img
+              class="image"
               *ngIf="pokemon[0].id < 1009"
               src="{{
                 pokemon[0].sprites.other['official-artwork'].front_shiny
               }}"
-              alt=""
+              alt="Loading..."
             />
           </div>
         </div>
@@ -111,7 +113,7 @@
             <li>
               <span>{{ move.move.name }} </span>
               <span
-                >Lv.{{ move.version_group_details[0].level_learned_at }}</span
+                >-Lv.{{ move.version_group_details[0].level_learned_at }}</span
               >
             </li>
           </div>
