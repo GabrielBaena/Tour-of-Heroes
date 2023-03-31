@@ -14,25 +14,16 @@ import { Pokemon } from '../pokemon';
 export class PokedexComponent {
   constructor(private _pokedexsService: PokedexService) {}
 
-  pokemonGen1: any[] = [];
-  pokemonGen2: any[] = [];
-  pokemonGen3: any[] = [];
-  pokemonGen4: any[] = [];
-  pokemonGen5: any[] = [];
-  pokemonGen6: any[] = [];
-  pokemonGen7: any[] = [];
-  pokemonGen8: any[] = [];
-  pokemonGen9: any[] = [];
   pokemons: any[] = [
-    { pokemons: this.pokemonGen1, gen: 1 },
-    { pokemons: this.pokemonGen2, gen: 2 },
-    { pokemons: this.pokemonGen3, gen: 3 },
-    { pokemons: this.pokemonGen4, gen: 4 },
-    { pokemons: this.pokemonGen5, gen: 5 },
-    { pokemons: this.pokemonGen6, gen: 6 },
-    { pokemons: this.pokemonGen7, gen: 7 },
-    { pokemons: this.pokemonGen8, gen: 8 },
-    { pokemons: this.pokemonGen9, gen: 9 },
+    { pokemons: [], gen: 1 },
+    { pokemons: [], gen: 2 },
+    { pokemons: [], gen: 3 },
+    { pokemons: [], gen: 4 },
+    { pokemons: [], gen: 5 },
+    { pokemons: [], gen: 6 },
+    { pokemons: [], gen: 7 },
+    { pokemons: [], gen: 8 },
+    { pokemons: [], gen: 9 },
   ];
 
   pokemonNameList: any[] = [];
@@ -60,19 +51,9 @@ export class PokedexComponent {
     { type: 'fairy', checked: false },
   ];
 
-  // List to filter
   DisplayTypetList: any[] = [];
 
   ngOnInit(): void {
-    // this.catchGen1();
-    // this.catchGen2();
-    // this.catchGen3();
-    // this.catchGen4();
-    // this.catchGen5();
-    // this.catchGen6();
-    // this.catchGen7();
-    // this.catchGen8();
-    // this.catchGen9();
     this.catchGens();
   }
 
