@@ -14,16 +14,16 @@ import { Pokemon } from '../pokemon';
 export class PokedexComponent {
   constructor(private _pokedexsService: PokedexService) {}
 
-  pokemons: any[] = [
-    { pokemons: [], gen: 1 },
-    { pokemons: [], gen: 2 },
-    { pokemons: [], gen: 3 },
-    { pokemons: [], gen: 4 },
-    { pokemons: [], gen: 5 },
-    { pokemons: [], gen: 6 },
-    { pokemons: [], gen: 7 },
-    { pokemons: [], gen: 8 },
-    { pokemons: [], gen: 9 },
+  pokemons: { pokemons: any[]; gen: number }[] = [
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
   ];
 
   pokemonNameList: any[] = [];
@@ -152,6 +152,7 @@ export class PokedexComponent {
                           return a.id - b.id;
                         }
                       );
+                      this.pokemonNameList.push(pokemon.name);
                     });
                 });
             });

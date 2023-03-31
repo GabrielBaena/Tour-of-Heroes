@@ -83,12 +83,12 @@
         >{{ (pokemon[0].height * 0.1).toFixed(2) }} meters</span
       >
     </div>
-    <div *ngIf="pokemon[1].gender_rate < -1" class="gender">
-      <span *ngIf="gender_rate[pokemon[1].gender_rate].female" class="female"
-        >&#9792; {{ gender_rate[pokemon[1].gender_rate].female }}
+    <div *ngIf="pokemon[1].gender_rate > -1" class="gender">
+      <span *ngIf="pokemon[1].gender_rate != 0" class="female"
+        >&#9792; {{ pokemon[1].gender_rate / 0.08 }}%
       </span>
-      <span *ngIf="gender_rate[pokemon[1].gender_rate].male" class="male"
-        >&#9794; {{ gender_rate[pokemon[1].gender_rate].male }}
+      <span *ngIf="pokemon[1].gender_rate != 8" class="male"
+        >&#9792; {{ (8 - pokemon[1].gender_rate) / 0.08 }}%
       </span>
     </div>
     <div *ngIf="pokemon[1].gender_rate == -1" class="gender">

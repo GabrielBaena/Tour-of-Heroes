@@ -41,7 +41,7 @@ img {
   flex-direction: row;
   width: 80%;
   padding-left: 20px;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 
 .pokemon-result {
@@ -85,6 +85,7 @@ img {
   flex-wrap: wrap;
   place-content: space-around;
   flex-direction: row;
+  justify-content: center;
 }
 
 .select {
@@ -99,7 +100,8 @@ img {
 }
 
 :hover + label {
-  border: 5px solid #f04040;
+  border: 4px solid #f04040;
+  padding: 8.67px;
 }
 
 :checked + label {
@@ -107,7 +109,7 @@ img {
 }
 
 .select__item {
-  border: 5px solid #3a9ec6;
+  border: 3px solid #3a9ec6;
   margin: 5px 30px;
   padding: 10px;
   width: 100px;
@@ -147,9 +149,9 @@ img {
 .pokemon-list {
   display: flex;
   flex-wrap: wrap;
-  place-content: space-evenly;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 .pokemon-card {
@@ -179,7 +181,8 @@ img {
 }
 
 .__image {
-  max-width: 60%;
+  width: 60%;
+
   padding: 15px;
   border-radius: 50%;
   background: #eeeeee;

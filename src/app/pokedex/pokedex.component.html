@@ -8,7 +8,6 @@
           class="pokemon-result"
           *ngIf="pokemon.includes(pokemonSearch.toLowerCase()) && pokemonSearch"
           href="/pokemon-detail/{{ pokemon }}"
-          target="_blank"
           >{{ pokemon }}
         </a>
       </ng-container>
@@ -56,7 +55,6 @@
         <a
           routerLink="/pokemon-detail/{{ pokemon.name }}"
           class="pokemon-card"
-          target="”_blank”"
           *ngIf="pokemon.show == true"
         >
           <div class="__number">N°{{ pokemon.id }}</div>
@@ -80,4 +78,7 @@
       </ng-container>
     </div>
   </div>
+  <h2 class="header">
+    <a href="/pokedex#beginning" class="beginning_button">Beginning</a>
+  </h2>
 </div>
