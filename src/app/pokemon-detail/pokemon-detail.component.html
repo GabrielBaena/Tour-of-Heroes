@@ -31,19 +31,14 @@
         class="image-display"
         *ngIf="pokemon[0].sprites.other['official-artwork'].front_shiny"
       >
-        <div>
-          <div class="__image">
-            <img
-              class="image"
-              *ngIf="pokemon[0].id < 1009"
-              src="{{
-                pokemon[0].sprites.other['official-artwork'].front_shiny
-              }}"
-              alt="Loading..."
-            />
-          </div>
+        <div class="__image">
+          <img
+            class="image"
+            src="{{ pokemon[0].sprites.other['official-artwork'].front_shiny }}"
+            alt="Loading..."
+          />
         </div>
-        <span *ngIf="pokemon[0].id < 1009">Shiny</span>
+        <span>Shiny</span>
       </div>
     </div>
     <div class="__number">

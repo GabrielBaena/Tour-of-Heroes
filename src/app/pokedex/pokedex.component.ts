@@ -26,6 +26,8 @@ export class PokedexComponent {
     { pokemons: [], gen: 0 },
   ];
 
+  pokemonDisplay: any[] = [];
+
   pokemonNameList: any[] = [];
 
   pokemonSearch: string = '';
@@ -52,9 +54,13 @@ export class PokedexComponent {
   ];
 
   DisplayTypetList: any[] = [];
-
   ngOnInit(): void {
     this.catchGens();
+
+    this.pokemons.forEach((val) =>
+      this.pokemonDisplay.push(Object.assign({}, val))
+    );
+    console.log(this.pokemonDisplay);
   }
 
   ignoreOrderCompare = (a: any[], b: any[]) => {

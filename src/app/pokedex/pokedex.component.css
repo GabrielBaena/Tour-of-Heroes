@@ -181,8 +181,8 @@ img {
 }
 
 .__image {
-  width: 60%;
-
+  width: 5em;
+  height: 5em;
   padding: 15px;
   border-radius: 50%;
   background: #eeeeee;
