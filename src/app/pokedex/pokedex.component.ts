@@ -26,7 +26,17 @@ export class PokedexComponent {
     { pokemons: [], gen: 0 },
   ];
 
-  pokemonDisplay: any[] = [];
+  pokemonDisplay: { pokemons: any[]; gen: number }[] = [
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+    { pokemons: [], gen: 0 },
+  ];
 
   pokemonNameList: any[] = [];
 
@@ -54,13 +64,21 @@ export class PokedexComponent {
   ];
 
   DisplayTypetList: any[] = [];
+
   ngOnInit(): void {
     this.catchGens();
+  }
 
-    this.pokemons.forEach((val) =>
-      this.pokemonDisplay.push(Object.assign({}, val))
-    );
-    console.log(this.pokemonDisplay);
+  clonePokemonList() {
+    this.pokemons.forEach((val) => {
+      this.pokemonDisplay.push(Object.assign({}, val));
+    });
+  }
+
+  clearPokemonList() {
+    this.pokemonDisplay.forEach((element) => {
+      element.pokemons = [];
+    });
   }
 
   ignoreOrderCompare = (a: any[], b: any[]) => {
@@ -91,42 +109,32 @@ export class PokedexComponent {
     });
   }
 
-  showAll() {
-    this.pokemons.forEach((element) => {
-      element.pokemons.forEach((pokemon: any) => {
-        pokemon.show = true;
-      });
-    });
-  }
-
   filterPokemon() {
+    this.clearPokemonList();
     if (this.DisplayTypetList.length == 0) {
-      this.showAll();
+      this.pokemonDisplay = [];
+      this.clonePokemonList();
     } else if (this.DisplayTypetList.length == 1) {
-      this.showAll();
       this.pokemons.forEach((element: any) => {
         element.pokemons.forEach((pokemon: any) => {
           if (pokemon.type.includes(this.DisplayTypetList[0])) {
+            this.pokemonDisplay[element.gen - 1].pokemons.push(pokemon);
           } else {
-            pokemon.show = false;
           }
         });
       });
     } else if (this.DisplayTypetList.length == 2) {
-      this.showAll();
       this.pokemons.forEach((element: any) => {
         element.pokemons.forEach((pokemon: any) => {
           if (this.ignoreOrderCompare(pokemon.type, this.DisplayTypetList)) {
+            this.pokemonDisplay[element.gen - 1].pokemons.push(pokemon);
           } else {
-            pokemon.show = false;
           }
         });
       });
     } else {
       this.pokemons.forEach((element: any) => {
-        element.pokemons.forEach((pokemon: any) => {
-          pokemon.show = false;
-        });
+        element.pokemons.forEach((pokemon: any) => {});
       });
     }
   }
@@ -138,6 +146,7 @@ export class PokedexComponent {
           .getdatabyurl(result.url)
           .subscribe((uniqueResponse: any) => {
             this.pokemons[uniqueResponse.id - 1].gen = uniqueResponse.id;
+            this.pokemonDisplay[uniqueResponse.id - 1].gen = uniqueResponse.id;
             uniqueResponse.pokemon_species.forEach((element: any) => {
               this._pokedexsService
                 .getdatabyurl(element.url)
@@ -149,11 +158,18 @@ export class PokedexComponent {
                       pokemon.types.forEach((element: any) => {
                         pokemon.type.push(element.type.name);
                       });
-                      pokemon.show = true;
                       this.pokemons[uniqueResponse.id - 1].pokemons.push(
                         pokemon
                       );
                       this.pokemons[uniqueResponse.id - 1].pokemons.sort(
+                        function (a: any, b: any) {
+                          return a.id - b.id;
+                        }
+                      );
+                      this.pokemonDisplay[uniqueResponse.id - 1].pokemons.push(
+                        pokemon
+                      );
+                      this.pokemonDisplay[uniqueResponse.id - 1].pokemons.sort(
                         function (a: any, b: any) {
                           return a.id - b.id;
                         }

@@ -16,7 +16,7 @@
   <h2 class="title">Select a generation:</h2>
   <div class="gen__list">
     <a
-      *ngFor="let generation of pokemons"
+      *ngFor="let generation of pokemonDisplay"
       href="/pokedex#generation_{{ generation.gen }}"
       class="select__gen"
       >Generation {{ generation.gen }}</a
@@ -43,7 +43,7 @@
   </div>
 </div>
 <div>
-  <div *ngFor="let generation of pokemons">
+  <div *ngFor="let generation of pokemonDisplay">
     <h2 class="header">
       <span id="generation_{{ generation.gen }}" class="title">
         Generation {{ generation.gen }}
@@ -52,11 +52,7 @@
     </h2>
     <div class="pokemon-list">
       <ng-container *ngFor="let pokemon of generation.pokemons">
-        <a
-          routerLink="/pokemon-detail/{{ pokemon.name }}"
-          class="pokemon-card"
-          *ngIf="pokemon.show == true"
-        >
+        <a routerLink="/pokemon-detail/{{ pokemon.name }}" class="pokemon-card">
           <div class="__number">N°{{ pokemon.id }}</div>
           <div class="__image">
             <img
