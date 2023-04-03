@@ -73,14 +73,13 @@ progress[value] {
   flex-direction: column;
   margin: 15px;
   font-size: 120%;
-  flex-wrap: wrap;
   align-items: center;
 }
 
 .__image {
   padding: 10%;
   border-radius: 50%;
-  width: 80%;
+  width: 12em;
   background: #eeeeee;
 }
 
