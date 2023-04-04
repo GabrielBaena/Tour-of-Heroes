@@ -10,13 +10,14 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component'; // <-- NgModel lives here
 
-import { HttpClientModule } from '@angular/common/http';
-
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { LoadingInterceptor } from './loading.interceptor';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -27,19 +28,23 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
     DashboardComponent,
     HeroSearchComponent,
     PokedexComponent,
-    PokemonDetailComponent
-    
+    PokemonDetailComponent,
+    SpinnerComponent,
   ],
   imports: [
     HttpClientModule,
-
-
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

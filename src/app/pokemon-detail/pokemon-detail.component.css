@@ -80,6 +80,7 @@ progress[value] {
   padding: 10%;
   border-radius: 50%;
   width: 12em;
+  height: 12em;
   background: #eeeeee;
 }
 
